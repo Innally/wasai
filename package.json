@@ -14,12 +14,14 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "workspaces": [
+    "functions"
+  ],
   "devDependencies": {
     "wrangler": "^4.76.0"
   },
   "dependencies": {
     "heic-convert": "^2.1.0",
-    "sharp": "^0.34.5",
-    "stripe": "^20.4.1"
+    "sharp": "^0.34.5"
   }
 }

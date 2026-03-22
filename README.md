@@ -32,6 +32,8 @@ If a browser cannot play a clip (often **`.mov`** outside Safari), the hero fall
 
 Connect this folder or push the repo. Internal links use real files (`products.html`, `product-detail.html`, …).
 
+**Pages Functions + Stripe:** The repo includes `wrangler.toml` with **`nodejs_compat`** (required for the Stripe Node SDK). The **`stripe`** package is declared under **`functions/package.json`** and hoisted via npm **workspaces** so the deploy bundler can resolve it. Use a build step that installs dependencies, e.g. **Build command:** `npm ci` or `npm install` (and commit **`package-lock.json`**). If you still see “Could not resolve stripe”, confirm the install ran and that **Settings → Functions → Compatibility flags** includes **`nodejs_compat`** (should match `wrangler.toml`).
+
 ### “Redirected you too many times” (ERR_TOO_MANY_REDIRECTS)
 
 That usually comes from **Cloudflare** (not from this repo’s HTML):
