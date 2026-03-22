@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": "raw-puer-ancient-tree-001",
+      "id": "raw-puer-22-zhengqitang-longzhu",
       "sku": "WS-SHENG-001",
       "category": "raw_puer",
       "categoryLabel": {
@@ -9,22 +9,229 @@
         "zh": "生普洱"
       },
       "name": {
-        "en": "East Half Mountain Raw Cake",
-        "zh": "东半山古树生茶饼"
+        "en": "Zhengqitang Dragon Pearls — 2022",
+        "zh": "正气塘龙珠 · 二〇二二年"
       },
       "shortDescription": {
-        "en": "Bright, floral, and layered with long aftertaste.",
-        "zh": "香气清扬，层次分明，回甘持久。"
+        "en": "Mountain sunlight folded into small pearls—bright, honest, built to age.",
+        "zh": "山头气韵揉成一粒粒龙珠，汤色明亮，宜藏宜饮。"
       },
       "description": {
-        "en": "Classic raw pu'er cake made from East Half Mountain ancient-tree leaves. Suitable for both immediate drinking and long-term storage.",
-        "zh": "采用东半山古树鲜叶制作的经典生普茶饼，适合当下品饮，也具有长期陈化价值。"
+        "en": "From Zhengqitang’s slopes, this raw pu'er carries the clarity of high-elevation leaf: lifted aroma, clean bitterness that opens into lasting sweetness. Shaped as dragon pearls so each steep stays generous—ideal when you want Mengku character without committing to a whole cake.",
+        "zh": "正气塘一带的生茶，香清气高，苦底化得快、回甘长。龙珠形态一次一粒，既保留山头个性，又适合日常慢饮或与友人分享。"
       },
       "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152521.webp"
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-2022-zhengqitang-dragon-pearls-gift-bag.webp"
     },
     {
-      "id": "ripe-puer-golden-002",
+      "id": "raw-puer-23-xiaohusai-longzhu",
+      "sku": "WS-SHENG-002",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Xiaohusai Dragon Pearls — 2023",
+        "zh": "小户赛龙珠 · 二〇二三年"
+      },
+      "shortDescription": {
+        "en": "Honeyed lift and soft strength—the gentle side of the mountain.",
+        "zh": "甜香柔和，山野气却不张扬，像雾里的花蜜。"
+      },
+      "description": {
+        "en": "Xiaohusai is loved for its approachable sweetness and rounded body. This 2023 raw pu'er in pearl form keeps the infusion steady cup after cup: florals up top, a creamy middle, and a finish that lingers like late spring air.",
+        "zh": "小户赛茶常以甜润、饱满见长。此茶以龙珠呈现，冲泡稳定，花香与蜜感层层展开，尾韵绵长，适合想认识勐库茶又怕过于霸道的茶友。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-2023-xiaohusai-dragon-pearls-gift-bag.webp"
+    },
+    {
+      "id": "raw-puer-24-xiaohusai-longzhu",
+      "sku": "WS-SHENG-003",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Xiaohusai Dragon Pearls — 2024",
+        "zh": "小户赛龙珠 · 二〇二四年"
+      },
+      "shortDescription": {
+        "en": "Young leaf, vivid energy—a lively chapter from the same beloved garden.",
+        "zh": "新茶活气足，香扬水柔，是春天留在杯里的回声。"
+      },
+      "description": {
+        "en": "A fresher year of Xiaohusai raw material: more lift, more aromatic sparkle, still anchored by the area’s honeyed calm. The pearls invite slow exploration—watch how the soup deepens as the session unfolds.",
+        "zh": "同年份更靠新茶，香气更扬、鲜爽感更强，却仍带小户赛特有的甜与柔。龙珠便于控制浓度，适合慢慢喝懂一泡茶的变化。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-2024-xiaohusai-dragon-pearls-gift-bag.webp"
+    },
+    {
+      "id": "raw-puer-yituan-heqi-slices",
+      "sku": "WS-SHENG-004",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Yituan Heqi — Pressed Slices",
+        "zh": "壹团和气 · 茶片"
+      },
+      "shortDescription": {
+        "en": "Harmony in hand: one slice, one honest bowl of Yunnan spring.",
+        "zh": "一团和气，一片一泡，把山野的从容带进日常。"
+      },
+      "description": {
+        "en": "Named for gathering without strain, this raw pu'er is cut into single-serve slices so ritual becomes easy—office, travel, or a quiet hour at home. Expect the same backbone of sun-dried leaf: clear, lively, and kind to the palate.",
+        "zh": "茶片独立包装，取饮省心。茶汤仍保持晒青茶的清透与力度，是「认真喝茶」与「随时能喝」之间的折中，适合作为随身口粮或待客时的轻松开场。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-yituan-heqi-tea-slices.webp"
+    },
+    {
+      "id": "raw-puer-rushi-slices",
+      "sku": "WS-SHENG-005",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Rushi — Pressed Slices",
+        "zh": "如实 · 茶片"
+      },
+      "shortDescription": {
+        "en": "No flourish—just leaf, water, and truth in the cup.",
+        "zh": "不夸饰，只把茶的本味交给你。"
+      },
+      "description": {
+        "en": "“Rushi” speaks to plainness: this raw pu'er slice is meant to taste like what it is—mountain air, sun, and careful pressing. Brew it when you want a straight answer from the tea, not a performance.",
+        "zh": "「如实」重在本真：香气与滋味不刻意雕琢，让茶自己说话。适合习惯用舌头判断品质、偏爱清爽山韵与真实回甘的饮者。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-rushi-tea-slices.webp"
+    },
+    {
+      "id": "raw-puer-xiaohusai-cake",
+      "sku": "WS-SHENG-006",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Xiaohusai — Cake",
+        "zh": "小户赛 · 茶饼"
+      },
+      "shortDescription": {
+        "en": "A full circle of leaf—sweetness, patience, and room to grow old.",
+        "zh": "一饼收尽小户赛的甜与厚，留给时间与灰尘慢慢说话。"
+      },
+      "description": {
+        "en": "Pressed as a cake, this Xiaohusai raw pu'er is for those who keep tea on the shelf as well as in the cup. The profile is classically generous: honeyed notes, smooth astringency, and a body that rewards both young drinking and quiet years in storage.",
+        "zh": "饼茶更适合长期存放与逐步转化。此茶延续小户赛甜润、饱满的特点，当下品饮已悦人，若存数年，香气与汤质会更有层次。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-xiaohusai-cake.webp"
+    },
+    {
+      "id": "raw-puer-zhengqitang-cake",
+      "sku": "WS-SHENG-007",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Zhengqitang — Cake",
+        "zh": "正气塘 · 茶饼"
+      },
+      "shortDescription": {
+        "en": "Upright mountain bones—structure, return sweetness, and a long echo.",
+        "zh": "山骨端正，回甘如钟，是生普里「有骨架」的那一类。"
+      },
+      "description": {
+        "en": "Zhengqitang teas are often praised for clarity and structure: the liquor feels honest, the aftertaste returns again and again. This cake is a study in balance—enough power to mark the moment, enough finesse to stay elegant.",
+        "zh": "正气塘茶常以清晰的山韵与持久的回甘著称。此饼茶汤有层次，苦甜平衡，既适合当下品饮，也适合作为中长期陈化的选择。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-zhengqitang-cake.webp"
+    },
+    {
+      "id": "raw-puer-nasai-longzhu",
+      "sku": "WS-SHENG-008",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "Nasai Arbor Dragon Pearls",
+        "zh": "那赛乔木 · 龙珠"
+      },
+      "shortDescription": {
+        "en": "Old arbor depth, rolled small—each pearl a slow story.",
+        "zh": "乔木底蕴揉成一粒粒，耐泡、有厚味。"
+      },
+      "description": {
+        "en": "Arbor material brings weight: thicker soup, richer mouthfeel, and a calm that lingers. These dragon pearls carry that legacy in a form that stays easy to share—one pearl at a time, gongfu or grandpa style.",
+        "zh": "乔木茶往往汤厚、韵深。龙珠让厚味不至于一次泡太多，适合慢慢体会茶汤的饱满与喉韵，也适合与茶友分饮。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-nasai-arbor-dragon-pearls-gift-bag.webp"
+    },
+    {
+      "id": "raw-puer-gaoshan-cake",
+      "sku": "WS-SHENG-009",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "High Mountain Arbor — Cake",
+        "zh": "高山乔木 · 茶饼"
+      },
+      "shortDescription": {
+        "en": "Wind, mist, and slow growth—height written into every leaf.",
+        "zh": "高山云雾养出的慢，落在茶汤里是清与长。"
+      },
+      "description": {
+        "en": "High-elevation arbor leaf tends to offer clean aromatics and a cool, lingering finish. This raw pu'er cake is a quiet celebration of terroir: drink it when you want the mountain without the noise.",
+        "zh": "高山乔木茶常带清冽香气与悠长的回甘与清凉感。此饼适合喜欢「干净山韵」、追求清爽与耐泡的饮者，也可作为长期存放的基底。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/raw-puer-high-mountain-arbor-cake.webp"
+    },
+    {
+      "id": "ripe-puer-24-daye-longzhu",
+      "sku": "WS-SHOU-001",
+      "category": "ripe_puer",
+      "categoryLabel": {
+        "en": "Ripe Pu'er",
+        "zh": "熟普洱"
+      },
+      "name": {
+        "en": "Large-Leaf Ripe Dragon Pearls — 2024",
+        "zh": "大叶熟茶龙珠 · 二〇二四年"
+      },
+      "shortDescription": {
+        "en": "Earth turned gentle—soft, dark, and welcoming from the first sip.",
+        "zh": "渥堆后的醇与暖，像旧木桌与深夜灯。"
+      },
+      "description": {
+        "en": "Ripe pu'er is fermented leaf made for comfort: smooth texture, mellow depth, and none of raw tea’s sharp edge. These large-leaf pearls brew a rich, dark liquor—ideal when you want warmth without fuss, or a gift that speaks of care.",
+        "zh": "熟茶经渥堆发酵，茶性温和，汤感顺滑。大叶料往往更醇厚。龙珠形式便于控制浓淡，适合秋冬、晚间或肠胃不喜生冷茶的人群。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/ripe-puer-2024-large-leaf-dragon-pearls-gift-bag.webp"
+    },
+    {
+      "id": "ripe-puer-muxiang-slices",
       "sku": "WS-SHOU-002",
       "category": "ripe_puer",
       "categoryLabel": {
@@ -32,318 +239,88 @@
         "zh": "熟普洱"
       },
       "name": {
-        "en": "Small-Pile Fermented Ripe Cake",
-        "zh": "小堆发酵熟茶饼"
+        "en": "Woody Aroma — Ripe Slices",
+        "zh": "木香 · 熟茶茶片"
       },
       "shortDescription": {
-        "en": "Smooth, woody, and comforting from the first cup.",
-        "zh": "入口顺滑，木质香与甜润感明显。"
+        "en": "Forest floor and sweet grain—ripe tea, folded into paper-thin ritual.",
+        "zh": "木质与糯甜，一片一泡，熟茶的温厚随手可及。"
       },
       "description": {
-        "en": "Traditionally fermented with spring water in climate-controlled rooms, delivering a clean and mellow profile for everyday tea drinking.",
-        "zh": "在恒温发酵空间中以传统工艺与泉水发酵，口感干净醇和，适合日常饮用。"
+        "en": "A ripe pu'er profile leaning woody and comforting: think aged wood, warm grain, a clean finish. Slices make it effortless—one piece, one bowl, whether you’re at a desk or on the road.",
+        "zh": "此款熟茶突出木香与醇滑，汤色红浓，入口绵柔。茶片适合快节奏生活里仍想喝一口「正经熟茶」的人。"
       },
       "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152537.webp"
+      "image": "assets/images/Selected_procduct_pic_white_background/ripe-puer-woody-aroma-tea-slices.webp"
     },
     {
-      "id": "loose-maocha-003",
-      "sku": "WS-MAOCHA-003",
-      "category": "loose_maocha",
+      "id": "sun-dried-red-fubao-slices",
+      "sku": "WS-HONG-001",
+      "category": "sun_dried_red",
       "categoryLabel": {
-        "en": "Loose Mao Cha",
-        "zh": "晒青毛茶"
+        "en": "Sun-dried Red",
+        "zh": "古树晒红"
       },
       "name": {
-        "en": "Sun-Dried Loose Mao Cha",
-        "zh": "高山晒青毛茶散茶"
+        "en": "Fubao — Sun-dried Red Slices",
+        "zh": "福宝 · 古树晒红茶片"
       },
       "shortDescription": {
-        "en": "Pure expression of mountain terroir in loose-leaf form.",
-        "zh": "以散茶形态呈现最直接的山场风味。"
+        "en": "Sun and wind instead of oven heat—florals that bloom without haste.",
+        "zh": "日晒而非高温提香，花蜜与果韵更自然。"
       },
       "description": {
-        "en": "Processed without withering or yellowing, preserving the vibrant, living character of fresh Yunnan leaves.",
-        "zh": "遵循传统晒青工艺，不做萎凋与闷黄，最大程度保留鲜叶活性与山野气息。"
+        "en": "Sun-dried Yunnan red tea keeps more of the leaf’s original perfume: softer tannins, brighter aromatics, and a sweetness that feels like light through leaves. The slices are a gentle invitation—red tea for people who don’t want heaviness.",
+        "zh": "晒红工艺以日光干燥为主，茶性相对温和，常带花蜜、果香。茶片方便冲泡，适合喜欢红茶却怕闷涩、偏爱清甜感的人。"
       },
       "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152913.webp"
+      "image": "assets/images/Selected_procduct_pic_white_background/sun-dried-red-fubao-tea-slices.webp"
     },
     {
-      "id": "sampler-set-004",
-      "sku": "WS-SAMPLE-004",
-      "category": "sampler",
+      "id": "ancient-tree-black-gift",
+      "sku": "WS-HONG-002",
+      "category": "black_tea",
       "categoryLabel": {
-        "en": "Sampler Set",
-        "zh": "入门组合"
+        "en": "Black Tea",
+        "zh": "古树红茶"
       },
       "name": {
-        "en": "Beginner Discovery Set",
-        "zh": "普洱入门体验套装"
+        "en": "Ancient Tree Black Tea — Gift Collection",
+        "zh": "古树红茶 · 礼藏"
       },
       "shortDescription": {
-        "en": "Taste several tea styles before choosing your favorite.",
-        "zh": "一次体验多种风格，快速找到你的偏好。"
+        "en": "Copper liquor, malt and honey—dignified red tea from old roots.",
+        "zh": "古树为骨，汤色红亮，蜜韵与麦芽香并陈。"
       },
       "description": {
-        "en": "Curated for first-time American drinkers, this set includes raw, ripe, and specialty teas with simple brewing guidance.",
-        "zh": "为海外新手茶友设计，包含生普、熟普与特色茶样，并附基础冲泡建议。"
+        "en": "Yunnan black tea from ancient-tree material carries fullness and a honeyed calm that fills the room. This gift presentation is for sharing: gongfu with friends, a quiet afternoon, or a gesture that says warmth without words.",
+        "zh": "古树红茶通常汤厚、甜润，带蜜香与麦芽感，适合工夫泡或稍坐杯。礼袋形式便于馈赠，也适合作为家中小聚的「压轴甜汤」。"
       },
       "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152927.webp"
+      "image": "assets/images/Selected_procduct_pic_white_background/ancient-tree-black-tea-gift-bag.webp"
     },
     {
-      "id": "aged-collection-005",
-      "sku": "WS-AGED-005",
-      "category": "aged",
-      "categoryLabel": {
-        "en": "Aged Collection",
-        "zh": "陈年收藏"
-      },
-      "name": {
-        "en": "Aged Collector's Cake",
-        "zh": "陈年收藏级茶饼"
-      },
-      "shortDescription": {
-        "en": "Matured profile with depth for collectors.",
-        "zh": "陈化香韵明显，适合收藏与深度品鉴。"
-      },
-      "description": {
-        "en": "Selected batches stored under careful conditions to build complexity over time, suitable for advanced tea enthusiasts.",
-        "zh": "甄选批次在严格仓储条件下陈化，层次和厚度随年份提升，适合资深爱好者。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153111.webp"
-    },
-    {
-      "id": "white-tea-006",
-      "sku": "WS-WHITE-006",
+      "id": "white-tea-8g-sweet-slices",
+      "sku": "WS-WHITE-001",
       "category": "white_tea",
       "categoryLabel": {
         "en": "White Tea",
         "zh": "白茶"
       },
       "name": {
-        "en": "Yunnan White Tea Cake",
-        "zh": "云南白茶饼"
+        "en": "Sweet White — Pressed Slices",
+        "zh": "甜白 · 茶片"
       },
       "shortDescription": {
-        "en": "Soft sweetness with elegant floral aroma.",
-        "zh": "甜润柔和，花香清雅。"
+        "en": "Almost nothing but leaf and air—sweet, pale, and easy to love.",
+        "zh": "淡而不薄，清甜沁人，像月光浸过的水。"
       },
       "description": {
-        "en": "Yunnan white tea crafted for gentle daily drinking while retaining enough structure for light aging.",
-        "zh": "云南白茶风格清柔，兼顾日常饮用与轻度陈化潜力。"
+        "en": "White tea asks little and gives clarity: soft florals, clean sweetness, a body that glides. These slices keep the experience portable—light caffeine, gentle flavor, a companion for late work or slow mornings.",
+        "zh": "白茶工艺轻，保留较多氨基酸与清甜感，茶性相对平和。茶片适合清淡口味、初次尝试白茶或需要低刺激饮品的场景。"
       },
       "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153124.webp"
-    },
-    {
-      "id": "dianhong-007",
-      "sku": "WS-DIANHONG-007",
-      "category": "dianhong",
-      "categoryLabel": {
-        "en": "Dianhong Black Tea",
-        "zh": "滇红"
-      },
-      "name": {
-        "en": "Yunnan Dianhong",
-        "zh": "云南古树滇红"
-      },
-      "shortDescription": {
-        "en": "Honeyed sweetness and rich body.",
-        "zh": "蜜甜明显，茶汤饱满。"
-      },
-      "description": {
-        "en": "A warm and approachable black tea profile that introduces Yunnan's depth to non-pu'er drinkers.",
-        "zh": "温润易饮的红茶表达，让更多非普洱用户也能感受云南茶的厚度。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153153.webp"
-    },
-    {
-      "id": "flavored-tea-008",
-      "sku": "WS-FLAVOR-008",
-      "category": "flavored",
-      "categoryLabel": {
-        "en": "Flavored Tea",
-        "zh": "调味茶"
-      },
-      "name": {
-        "en": "Craft Flavored Tea Blend",
-        "zh": "手作调味茶组合"
-      },
-      "shortDescription": {
-        "en": "Friendly flavor gateway for younger tea drinkers.",
-        "zh": "适合年轻人群的风味入口。"
-      },
-      "description": {
-        "en": "Designed for broader lifestyle tea occasions while still keeping a clean tea core and premium leaves.",
-        "zh": "面向更广泛生活场景设计，兼顾风味表现与优质茶底。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153218.webp"
-    },
-    {
-      "id": "raw-puer-studio-009",
-      "sku": "WS-009",
-      "category": "raw_puer",
-      "categoryLabel": {
-        "en": "Raw Pu'er",
-        "zh": "生普洱"
-      },
-      "name": {
-        "en": "East Half Mountain Raw Cake — Selection IX",
-        "zh": "东半山古树生茶饼 · 精选九号"
-      },
-      "shortDescription": {
-        "en": "Tight-pressed cake with clean mountain aromatics.",
-        "zh": "紧压饼面，山韵清爽。"
-      },
-      "description": {
-        "en": "From the same Mengku East Half Mountain supply chain as our core line. Replace copy with your tasting notes when ready.",
-        "zh": "与佤赛核心产品线同源。可在上架时替换为具体年份与口感描述。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153234.webp"
-    },
-    {
-      "id": "ripe-puer-studio-010",
-      "sku": "WS-010",
-      "category": "ripe_puer",
-      "categoryLabel": {
-        "en": "Ripe Pu'er",
-        "zh": "熟普洱"
-      },
-      "name": {
-        "en": "Ripe Pu'er Cake — Selection X",
-        "zh": "古树熟茶饼 · 精选十号"
-      },
-      "shortDescription": {
-        "en": "Velvet mouthfeel with sweet undertones.",
-        "zh": "汤感绵柔，甜韵明显。"
-      },
-      "description": {
-        "en": "Small-pile style ripe tea from WASAI's fermentation program. Update with batch details as you finalize retail naming.",
-        "zh": "佤赛小堆熟茶系列。零售命名与批次信息可后续补充。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153330.webp"
-    },
-    {
-      "id": "sampler-set-012",
-      "sku": "WS-012",
-      "category": "sampler",
-      "categoryLabel": {
-        "en": "Sampler Set",
-        "zh": "入门组合"
-      },
-      "name": {
-        "en": "Tea Sampler — Selection XII",
-        "zh": "茶样组合 · 精选十二号"
-      },
-      "shortDescription": {
-        "en": "Multiple styles in one set for exploration.",
-        "zh": "一盒多风格，便于对比品饮。"
-      },
-      "description": {
-        "en": "Sampler packaging from the white-background product shoot. List exact contents per SKU when you lock the assortment.",
-        "zh": "白底图茶样组合。确定具体配茶后替换文案。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153649.webp"
-    },
-    {
-      "id": "white-tea-014",
-      "sku": "WS-014",
-      "category": "white_tea",
-      "categoryLabel": {
-        "en": "White Tea",
-        "zh": "白茶"
-      },
-      "name": {
-        "en": "Yunnan White Tea — Selection XIV",
-        "zh": "云南白茶 · 精选十四号"
-      },
-      "shortDescription": {
-        "en": "Light, honeyed, easy to love.",
-        "zh": "清甜柔和，易入口。"
-      },
-      "description": {
-        "en": "Yunnan white tea style from the same mountain supply. Refine name and grade with your QC team.",
-        "zh": "云南白茶风格。品控确定等级后可更新品名。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153845.webp"
-    },
-    {
-      "id": "flavored-tea-016",
-      "sku": "WS-016",
-      "category": "flavored",
-      "categoryLabel": {
-        "en": "Flavored Tea",
-        "zh": "调味茶"
-      },
-      "name": {
-        "en": "Flavored Blend — Selection XVI",
-        "zh": "调味茶 · 精选十六号"
-      },
-      "shortDescription": {
-        "en": "Aromatic and approachable for new drinkers.",
-        "zh": "香气友好，适合新茶友。"
-      },
-      "description": {
-        "en": "Lifestyle-oriented blend; list flavor notes and base tea on the label when ready.",
-        "zh": "风味向产品。上市时请写明调味与茶底。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-154108.webp"
-    },
-    {
-      "id": "ripe-puer-studio-018",
-      "sku": "WS-018",
-      "category": "ripe_puer",
-      "categoryLabel": {
-        "en": "Ripe Pu'er",
-        "zh": "熟普洱"
-      },
-      "name": {
-        "en": "Ripe Cake — Selection XVIII",
-        "zh": "熟茶饼 · 精选十八号"
-      },
-      "shortDescription": {
-        "en": "Earthy, smooth, comforting brew.",
-        "zh": "木质与醇滑感并重。"
-      },
-      "description": {
-        "en": "Ripe pu'er from controlled fermentation. Add moisture and fermentation notes for B2C pages if needed.",
-        "zh": "可控发酵熟茶。如需可补充发酵与含水信息。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-154300.webp"
-    },
-    {
-      "id": "catalog-selection-020",
-      "sku": "WS-020",
-      "category": "sampler",
-      "categoryLabel": {
-        "en": "Sampler Set",
-        "zh": "入门组合"
-      },
-      "name": {
-        "en": "WASAI Selection — XX",
-        "zh": "佤赛精选 · 二十号"
-      },
-      "shortDescription": {
-        "en": "Featured item from the white-background catalog shoot.",
-        "zh": "白底图目录款之一。"
-      },
-      "description": {
-        "en": "Placeholder listing for the final image in the folder—rename and categorize to match your actual SKU.",
-        "zh": "文件夹内最后一张白底图。请按真实 SKU 调整品名与分类。"
-      },
-      "priceUsd": null,
-      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-154508.webp"
+      "image": "assets/images/Selected_procduct_pic_white_background/white-tea-8g-sweet-tea-slices.webp"
     }
   ]
 }

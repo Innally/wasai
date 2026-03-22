@@ -35,7 +35,6 @@ This document records the **original static-site plan**, the **implemented archi
 | `data/products.json` | Product records (backend-ready shape) |
 | `assets/` | Logo, minimal `images/`, `video/` |
 | `scripts/` | Image conversion & asset sync |
-| `_redirects` | Clean URLs on Cloudflare |
 
 ### Planned landing sections (priority order)
 
@@ -95,7 +94,7 @@ This document records the **original static-site plan**, the **implemented archi
 
 ### Cloudflare
 
-- **`_redirects`** — e.g. `/products`, `/story`, `/product/*` → HTML entry points.
+- Links use **`*.html`** paths (no repo `_redirects`); avoid duplicate redirect rules in the Cloudflare dashboard that could loop with pretty-URL tools.
 
 ### Tooling
 
@@ -166,7 +165,6 @@ flowchart TB
 |------|---------|
 | [`README.md`](../README.md) | Operator-facing setup & deploy |
 | [`Company_overview.md`](../Company_overview.md) | Source copy / facts about WASAI |
-| [`_redirects`](../_redirects) | Cloudflare Pages routes |
 
 ---
 

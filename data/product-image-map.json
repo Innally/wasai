@@ -1,0 +1,91 @@
+{
+  "description": "Maps English-only WebP filenames (used in repo & URLs) to original Chinese file labels for reference. Product images live under Selected_procduct_pic_white_background/ and assets/images/Selected_procduct_pic_white_background/.",
+  "updated": "2026-03-21",
+  "folder": "Selected_procduct_pic_white_background",
+  "mappings": [
+    {
+      "productId": "raw-puer-22-zhengqitang-longzhu",
+      "sku": "WS-SHENG-001",
+      "englishFile": "raw-puer-2022-zhengqitang-dragon-pearls-gift-bag.webp",
+      "chineseFile": "普洱生茶-22年正气塘龙珠-礼袋收藏装.webp"
+    },
+    {
+      "productId": "raw-puer-23-xiaohusai-longzhu",
+      "sku": "WS-SHENG-002",
+      "englishFile": "raw-puer-2023-xiaohusai-dragon-pearls-gift-bag.webp",
+      "chineseFile": "普洱生茶-23年小户赛龙珠-礼袋收藏装.webp"
+    },
+    {
+      "productId": "raw-puer-24-xiaohusai-longzhu",
+      "sku": "WS-SHENG-003",
+      "englishFile": "raw-puer-2024-xiaohusai-dragon-pearls-gift-bag.webp",
+      "chineseFile": "普洱生茶-24年小户赛龙珠-礼袋收藏装.webp"
+    },
+    {
+      "productId": "raw-puer-yituan-heqi-slices",
+      "sku": "WS-SHENG-004",
+      "englishFile": "raw-puer-yituan-heqi-tea-slices.webp",
+      "chineseFile": "普洱生茶-壹团和气-茶片独立包装.webp"
+    },
+    {
+      "productId": "raw-puer-rushi-slices",
+      "sku": "WS-SHENG-005",
+      "englishFile": "raw-puer-rushi-tea-slices.webp",
+      "chineseFile": "普洱生茶-如实-茶片独立包装.webp"
+    },
+    {
+      "productId": "raw-puer-xiaohusai-cake",
+      "sku": "WS-SHENG-006",
+      "englishFile": "raw-puer-xiaohusai-cake.webp",
+      "chineseFile": "普洱生茶-小户赛-茶饼.webp"
+    },
+    {
+      "productId": "raw-puer-zhengqitang-cake",
+      "sku": "WS-SHENG-007",
+      "englishFile": "raw-puer-zhengqitang-cake.webp",
+      "chineseFile": "普洱生茶-正气塘-茶饼.webp"
+    },
+    {
+      "productId": "raw-puer-nasai-longzhu",
+      "sku": "WS-SHENG-008",
+      "englishFile": "raw-puer-nasai-arbor-dragon-pearls-gift-bag.webp",
+      "chineseFile": "普洱生茶-那赛乔木龙珠-礼袋收藏装.webp"
+    },
+    {
+      "productId": "raw-puer-gaoshan-cake",
+      "sku": "WS-SHENG-009",
+      "englishFile": "raw-puer-high-mountain-arbor-cake.webp",
+      "chineseFile": "普洱生茶-高山乔木-茶饼.webp"
+    },
+    {
+      "productId": "ripe-puer-24-daye-longzhu",
+      "sku": "WS-SHOU-001",
+      "englishFile": "ripe-puer-2024-large-leaf-dragon-pearls-gift-bag.webp",
+      "chineseFile": "普洱熟茶-24年大叶熟茶龙珠-礼袋收藏装.webp"
+    },
+    {
+      "productId": "ripe-puer-muxiang-slices",
+      "sku": "WS-SHOU-002",
+      "englishFile": "ripe-puer-woody-aroma-tea-slices.webp",
+      "chineseFile": "普洱熟茶-木香-茶片独立包装.webp"
+    },
+    {
+      "productId": "sun-dried-red-fubao-slices",
+      "sku": "WS-HONG-001",
+      "englishFile": "sun-dried-red-fubao-tea-slices.webp",
+      "chineseFile": "古树晒红-福宝红茶-茶片独立包装.webp"
+    },
+    {
+      "productId": "ancient-tree-black-gift",
+      "sku": "WS-HONG-002",
+      "englishFile": "ancient-tree-black-tea-gift-bag.webp",
+      "chineseFile": "古树红茶-红茶-礼袋收藏装.webp"
+    },
+    {
+      "productId": "white-tea-8g-sweet-slices",
+      "sku": "WS-WHITE-001",
+      "englishFile": "white-tea-8g-sweet-tea-slices.webp",
+      "chineseFile": "白茶-8克甜-茶片独立包装.webp"
+    }
+  ]
+}
