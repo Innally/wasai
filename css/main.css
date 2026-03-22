@@ -157,6 +157,11 @@ p {
   transition: opacity 0.65s ease;
 }
 
+/* When video is disabled, hide the video layer so posters do not cover the slideshow (video stack is z-index 2). */
+.hero-media.hero-media--image-only .hero-video-stack {
+  display: none;
+}
+
 /* Hide photo fallback whenever the video playlist is active (including between clip swaps). */
 .hero-media.hero-media--playlist-active .hero-slideshow--fallback {
   opacity: 0;

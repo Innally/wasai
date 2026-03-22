@@ -41,9 +41,9 @@
 
     <main>
       <section class="hero-cinematic section" id="hero">
-        <div class="hero-media" data-parallax>
-          <!-- Dual videos: one plays while the other preloads the next clip (smooth cuts, no poster/slideshow flash). -->
-          <div class="hero-video-stack">
+        <div class="hero-media hero-media--image-only" data-parallax>
+          <!-- Video hero temporarily off: see HERO_VIDEO_ENABLED in js/main.js. Slideshow below is primary. -->
+          <div class="hero-video-stack" hidden>
             <video
               id="heroVideoA"
               class="hero-video"
@@ -64,7 +64,7 @@
               aria-label="Tea making and tea art demonstration, part B"
             ></video>
           </div>
-          <div class="hero-slideshow hero-slideshow--fallback" aria-hidden="true">
+          <div class="hero-slideshow hero-slideshow--fallback" role="img" aria-label="Tea mountain photography">
             <div
               class="hero-slide is-active"
               style="background-image: url('assets/images/tea_mountain_and_trees/2023-08-27-202334.webp')"
@@ -93,10 +93,10 @@
         </div>
         <p
           class="hero-hint"
-          data-en="Video showing tea making & gongfu-style tea art using WASAI."
-          data-zh="茶叶采用东半山佤赛古树茶，视频展示传统茶艺泡茶。"
+          data-en="Rotating photos from our tea mountains (video hero is temporarily off)."
+          data-zh="茶山实景图片轮播（视频英雄区已暂时关闭）。"
         >
-          Above: real-time tea making & gongfu-style demonstration (loops through clips).
+          Above: rotating tea mountain photography (video hero temporarily off).
         </p>
       </section>
 

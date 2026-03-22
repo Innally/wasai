@@ -1,13 +1,19 @@
 import { getProduct, getProducts } from "./api.js";
 import { applyLanguage, initLanguage } from "./language.js";
 
-/** Hero background: tea making & art clips (paths relative to site root). */
-const HERO_VIDEO_PLAYLIST = [
-  "assets/video/2025-06-24 151416.mov",
-  "assets/video/2025-06-24 151439.mov",
-  "assets/video/2025-06-24 151450.mov",
-  "assets/video/2025-06-24 151523.mov",
-].map((path) => encodeURI(path));
+/**
+ * Hero video playlist (paths relative to site root).
+ * Set HERO_VIDEO_ENABLED to false to use the image slideshow only (no video load / decode).
+ */
+const HERO_VIDEO_ENABLED = false;
+const HERO_VIDEO_PLAYLIST = HERO_VIDEO_ENABLED
+  ? [
+      "assets/video/2025-06-24 151416.mov",
+      "assets/video/2025-06-24 151439.mov",
+      "assets/video/2025-06-24 151450.mov",
+      "assets/video/2025-06-24 151523.mov",
+    ].map((path) => encodeURI(path))
+  : [];
 
 function initRevealAnimations() {
   const targets = document.querySelectorAll(".reveal");
@@ -336,6 +342,42 @@ function readProductIdFromUrl() {
   return "";
 }
 
+async function startCheckout(product) {
+  const lang = getActiveLanguage();
+  const label = lang === "zh" ? "立即购买" : "Buy Now";
+  const button = document.querySelector("[data-checkout-btn]");
+  const original = button?.textContent || label;
+  if (button) {
+    button.textContent = lang === "zh" ? "跳转支付中..." : "Redirecting...";
+    button.setAttribute("disabled", "true");
+    button.setAttribute("aria-busy", "true");
+  }
+
+  try {
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        productId: product.id,
+        quantity: 1,
+      }),
+    });
+    const body = await response.json().catch(() => ({}));
+    if (!response.ok || !body.url) {
+      throw new Error(body.error || "Unable to start checkout.");
+    }
+    window.location.href = body.url;
+  } catch (error) {
+    console.error(error);
+    window.alert(lang === "zh" ? "暂时无法发起支付，请稍后重试。" : "Unable to start checkout right now. Please try again.");
+    if (button) {
+      button.textContent = original;
+      button.removeAttribute("disabled");
+      button.removeAttribute("aria-busy");
+    }
+  }
+}
+
 async function renderProductDetail() {
   const host = document.getElementById("detailLayout");
   if (!host) {
@@ -359,9 +401,21 @@ async function renderProductDetail() {
       <p>${resolveText(product.description, lang)}</p>
       <p><strong>${lang === "zh" ? "规格：" : "SKU:"}</strong> ${product.sku}</p>
       <p><strong>${lang === "zh" ? "价格：" : "Price:"}</strong> ${price}</p>
-      <a class="btn btn-gold" href="index.html#contact">${lang === "zh" ? "咨询此产品" : "Inquire About This Tea"}</a>
+      <div class="detail-actions">
+        <button type="button" class="btn btn-gold" data-checkout-btn ${product.priceUsd ? "" : "disabled"}>
+          ${lang === "zh" ? "立即购买" : "Buy Now"}
+        </button>
+        <a class="btn btn-outline-dark" href="index.html#contact">${lang === "zh" ? "咨询此产品" : "Inquire About This Tea"}</a>
+      </div>
     </div>
   `;
+
+  const checkoutBtn = host.querySelector("[data-checkout-btn]");
+  if (checkoutBtn && product.priceUsd) {
+    checkoutBtn.addEventListener("click", () => {
+      startCheckout(product);
+    });
+  }
 }
 
 function attachLanguageRerender() {
