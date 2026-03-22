@@ -1,6 +1,14 @@
 import { getProduct, getProducts } from "./api.js";
 import { applyLanguage, initLanguage } from "./language.js";
 
+/** Hero background: tea making & art clips (paths relative to site root). */
+const HERO_VIDEO_PLAYLIST = [
+  "assets/video/2025-06-24 151416.mov",
+  "assets/video/2025-06-24 151439.mov",
+  "assets/video/2025-06-24 151450.mov",
+  "assets/video/2025-06-24 151523.mov",
+].map((path) => encodeURI(path));
+
 function initRevealAnimations() {
   const targets = document.querySelectorAll(".reveal");
   if (!targets.length) {
@@ -91,7 +99,9 @@ function initMobileNav() {
 }
 
 function initHeroMedia() {
-  const video = document.getElementById("heroVideo");
+  const media = document.querySelector(".hero-media");
+  const a = document.getElementById("heroVideoA");
+  const b = document.getElementById("heroVideoB");
   const slides = document.querySelectorAll(".hero-slide");
   if (!slides.length) {
     return;
@@ -111,6 +121,18 @@ function initHeroMedia() {
   };
 
   const startSlides = () => {
+    if (media) {
+      media.classList.remove("hero-media--playlist-active");
+    }
+    [a, b].forEach((el) => {
+      if (!el) {
+        return;
+      }
+      el.classList.remove("is-playing");
+      delete el.dataset.wasaiClip;
+      el.removeAttribute("src");
+      el.load();
+    });
     if (reduceMotion) {
       return;
     }
@@ -124,22 +146,73 @@ function initHeroMedia() {
     }
   };
 
-  if (video) {
-    const hasSource = Boolean(video.querySelector("source") || video.getAttribute("src"));
-    if (hasSource) {
-      video.play().catch(() => {
-        startSlides();
-      });
-      video.addEventListener("playing", () => {
-        video.classList.add("is-playing");
-        stopSlides();
-      });
-    } else {
-      startSlides();
-    }
-  } else {
+  if (!a || !b || !HERO_VIDEO_PLAYLIST.length) {
     startSlides();
+    return;
   }
+
+  const clips = HERO_VIDEO_PLAYLIST;
+  const n = clips.length;
+
+  const removePosters = () => {
+    a.removeAttribute("poster");
+    b.removeAttribute("poster");
+  };
+
+  const setClip = (el, clipIndex) => {
+    const idx = ((clipIndex % n) + n) % n;
+    const key = String(idx);
+    if (el.dataset.wasaiClip === key) {
+      return;
+    }
+    el.dataset.wasaiClip = key;
+    el.src = clips[idx];
+    el.load();
+  };
+
+  const onPlaying = (playingEl, otherEl) => {
+    playingEl.classList.add("is-playing");
+    otherEl.classList.remove("is-playing");
+    if (media) {
+      media.classList.add("hero-media--playlist-active");
+    }
+    removePosters();
+    stopSlides();
+    const cur = Number.parseInt(playingEl.dataset.wasaiClip ?? "0", 10);
+    const nextIdx = (cur + 1) % n;
+    setClip(otherEl, nextIdx);
+  };
+
+  a.addEventListener("playing", () => onPlaying(a, b));
+  b.addEventListener("playing", () => onPlaying(b, a));
+
+  a.addEventListener("ended", () => {
+    a.classList.remove("is-playing");
+    b.play().catch(() => {
+      startSlides();
+    });
+  });
+
+  b.addEventListener("ended", () => {
+    b.classList.remove("is-playing");
+    a.play().catch(() => {
+      startSlides();
+    });
+  });
+
+  const onVideoError = () => {
+    startSlides();
+  };
+  a.addEventListener("error", onVideoError);
+  b.addEventListener("error", onVideoError);
+
+  // Prime: A = clip 0, B = clip 1 (ready when A ends)
+  setClip(a, 0);
+  setClip(b, 1);
+
+  a.play().catch(() => {
+    startSlides();
+  });
 }
 
 function getActiveLanguage() {

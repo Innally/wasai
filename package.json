@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "convert-images": "node scripts/convert-images.js",
+    "assets:used": "node scripts/copy-used-assets.js",
     "test": "echo \"No automated tests configured\""
   },
   "keywords": [],

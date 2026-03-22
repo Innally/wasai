@@ -4,8 +4,14 @@
       "id": "raw-puer-ancient-tree-001",
       "sku": "WS-SHENG-001",
       "category": "raw_puer",
-      "categoryLabel": { "en": "Raw Pu'er", "zh": "生普洱" },
-      "name": { "en": "East Half Mountain Raw Cake", "zh": "东半山古树生茶饼" },
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "East Half Mountain Raw Cake",
+        "zh": "东半山古树生茶饼"
+      },
       "shortDescription": {
         "en": "Bright, floral, and layered with long aftertaste.",
         "zh": "香气清扬，层次分明，回甘持久。"
@@ -21,8 +27,14 @@
       "id": "ripe-puer-golden-002",
       "sku": "WS-SHOU-002",
       "category": "ripe_puer",
-      "categoryLabel": { "en": "Ripe Pu'er", "zh": "熟普洱" },
-      "name": { "en": "Small-Pile Fermented Ripe Cake", "zh": "小堆发酵熟茶饼" },
+      "categoryLabel": {
+        "en": "Ripe Pu'er",
+        "zh": "熟普洱"
+      },
+      "name": {
+        "en": "Small-Pile Fermented Ripe Cake",
+        "zh": "小堆发酵熟茶饼"
+      },
       "shortDescription": {
         "en": "Smooth, woody, and comforting from the first cup.",
         "zh": "入口顺滑，木质香与甜润感明显。"
@@ -38,8 +50,14 @@
       "id": "loose-maocha-003",
       "sku": "WS-MAOCHA-003",
       "category": "loose_maocha",
-      "categoryLabel": { "en": "Loose Mao Cha", "zh": "晒青毛茶" },
-      "name": { "en": "Sun-Dried Loose Mao Cha", "zh": "高山晒青毛茶散茶" },
+      "categoryLabel": {
+        "en": "Loose Mao Cha",
+        "zh": "晒青毛茶"
+      },
+      "name": {
+        "en": "Sun-Dried Loose Mao Cha",
+        "zh": "高山晒青毛茶散茶"
+      },
       "shortDescription": {
         "en": "Pure expression of mountain terroir in loose-leaf form.",
         "zh": "以散茶形态呈现最直接的山场风味。"
@@ -55,8 +73,14 @@
       "id": "sampler-set-004",
       "sku": "WS-SAMPLE-004",
       "category": "sampler",
-      "categoryLabel": { "en": "Sampler Set", "zh": "入门组合" },
-      "name": { "en": "Beginner Discovery Set", "zh": "普洱入门体验套装" },
+      "categoryLabel": {
+        "en": "Sampler Set",
+        "zh": "入门组合"
+      },
+      "name": {
+        "en": "Beginner Discovery Set",
+        "zh": "普洱入门体验套装"
+      },
       "shortDescription": {
         "en": "Taste several tea styles before choosing your favorite.",
         "zh": "一次体验多种风格，快速找到你的偏好。"
@@ -72,8 +96,14 @@
       "id": "aged-collection-005",
       "sku": "WS-AGED-005",
       "category": "aged",
-      "categoryLabel": { "en": "Aged Collection", "zh": "陈年收藏" },
-      "name": { "en": "Aged Collector's Cake", "zh": "陈年收藏级茶饼" },
+      "categoryLabel": {
+        "en": "Aged Collection",
+        "zh": "陈年收藏"
+      },
+      "name": {
+        "en": "Aged Collector's Cake",
+        "zh": "陈年收藏级茶饼"
+      },
       "shortDescription": {
         "en": "Matured profile with depth for collectors.",
         "zh": "陈化香韵明显，适合收藏与深度品鉴。"
@@ -89,8 +119,14 @@
       "id": "white-tea-006",
       "sku": "WS-WHITE-006",
       "category": "white_tea",
-      "categoryLabel": { "en": "White Tea", "zh": "白茶" },
-      "name": { "en": "Yunnan White Tea Cake", "zh": "云南白茶饼" },
+      "categoryLabel": {
+        "en": "White Tea",
+        "zh": "白茶"
+      },
+      "name": {
+        "en": "Yunnan White Tea Cake",
+        "zh": "云南白茶饼"
+      },
       "shortDescription": {
         "en": "Soft sweetness with elegant floral aroma.",
         "zh": "甜润柔和，花香清雅。"
@@ -106,8 +142,14 @@
       "id": "dianhong-007",
       "sku": "WS-DIANHONG-007",
       "category": "dianhong",
-      "categoryLabel": { "en": "Dianhong Black Tea", "zh": "滇红" },
-      "name": { "en": "Yunnan Dianhong", "zh": "云南古树滇红" },
+      "categoryLabel": {
+        "en": "Dianhong Black Tea",
+        "zh": "滇红"
+      },
+      "name": {
+        "en": "Yunnan Dianhong",
+        "zh": "云南古树滇红"
+      },
       "shortDescription": {
         "en": "Honeyed sweetness and rich body.",
         "zh": "蜜甜明显，茶汤饱满。"
@@ -123,8 +165,14 @@
       "id": "flavored-tea-008",
       "sku": "WS-FLAVOR-008",
       "category": "flavored",
-      "categoryLabel": { "en": "Flavored Tea", "zh": "调味茶" },
-      "name": { "en": "Craft Flavored Tea Blend", "zh": "手作调味茶组合" },
+      "categoryLabel": {
+        "en": "Flavored Tea",
+        "zh": "调味茶"
+      },
+      "name": {
+        "en": "Craft Flavored Tea Blend",
+        "zh": "手作调味茶组合"
+      },
       "shortDescription": {
         "en": "Friendly flavor gateway for younger tea drinkers.",
         "zh": "适合年轻人群的风味入口。"
@@ -135,6 +183,167 @@
       },
       "priceUsd": null,
       "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153218.webp"
+    },
+    {
+      "id": "raw-puer-studio-009",
+      "sku": "WS-009",
+      "category": "raw_puer",
+      "categoryLabel": {
+        "en": "Raw Pu'er",
+        "zh": "生普洱"
+      },
+      "name": {
+        "en": "East Half Mountain Raw Cake — Selection IX",
+        "zh": "东半山古树生茶饼 · 精选九号"
+      },
+      "shortDescription": {
+        "en": "Tight-pressed cake with clean mountain aromatics.",
+        "zh": "紧压饼面，山韵清爽。"
+      },
+      "description": {
+        "en": "From the same Mengku East Half Mountain supply chain as our core line. Replace copy with your tasting notes when ready.",
+        "zh": "与佤赛核心产品线同源。可在上架时替换为具体年份与口感描述。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153234.webp"
+    },
+    {
+      "id": "ripe-puer-studio-010",
+      "sku": "WS-010",
+      "category": "ripe_puer",
+      "categoryLabel": {
+        "en": "Ripe Pu'er",
+        "zh": "熟普洱"
+      },
+      "name": {
+        "en": "Ripe Pu'er Cake — Selection X",
+        "zh": "古树熟茶饼 · 精选十号"
+      },
+      "shortDescription": {
+        "en": "Velvet mouthfeel with sweet undertones.",
+        "zh": "汤感绵柔，甜韵明显。"
+      },
+      "description": {
+        "en": "Small-pile style ripe tea from WASAI's fermentation program. Update with batch details as you finalize retail naming.",
+        "zh": "佤赛小堆熟茶系列。零售命名与批次信息可后续补充。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153330.webp"
+    },
+    {
+      "id": "sampler-set-012",
+      "sku": "WS-012",
+      "category": "sampler",
+      "categoryLabel": {
+        "en": "Sampler Set",
+        "zh": "入门组合"
+      },
+      "name": {
+        "en": "Tea Sampler — Selection XII",
+        "zh": "茶样组合 · 精选十二号"
+      },
+      "shortDescription": {
+        "en": "Multiple styles in one set for exploration.",
+        "zh": "一盒多风格，便于对比品饮。"
+      },
+      "description": {
+        "en": "Sampler packaging from the white-background product shoot. List exact contents per SKU when you lock the assortment.",
+        "zh": "白底图茶样组合。确定具体配茶后替换文案。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153649.webp"
+    },
+    {
+      "id": "white-tea-014",
+      "sku": "WS-014",
+      "category": "white_tea",
+      "categoryLabel": {
+        "en": "White Tea",
+        "zh": "白茶"
+      },
+      "name": {
+        "en": "Yunnan White Tea — Selection XIV",
+        "zh": "云南白茶 · 精选十四号"
+      },
+      "shortDescription": {
+        "en": "Light, honeyed, easy to love.",
+        "zh": "清甜柔和，易入口。"
+      },
+      "description": {
+        "en": "Yunnan white tea style from the same mountain supply. Refine name and grade with your QC team.",
+        "zh": "云南白茶风格。品控确定等级后可更新品名。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153845.webp"
+    },
+    {
+      "id": "flavored-tea-016",
+      "sku": "WS-016",
+      "category": "flavored",
+      "categoryLabel": {
+        "en": "Flavored Tea",
+        "zh": "调味茶"
+      },
+      "name": {
+        "en": "Flavored Blend — Selection XVI",
+        "zh": "调味茶 · 精选十六号"
+      },
+      "shortDescription": {
+        "en": "Aromatic and approachable for new drinkers.",
+        "zh": "香气友好，适合新茶友。"
+      },
+      "description": {
+        "en": "Lifestyle-oriented blend; list flavor notes and base tea on the label when ready.",
+        "zh": "风味向产品。上市时请写明调味与茶底。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-154108.webp"
+    },
+    {
+      "id": "ripe-puer-studio-018",
+      "sku": "WS-018",
+      "category": "ripe_puer",
+      "categoryLabel": {
+        "en": "Ripe Pu'er",
+        "zh": "熟普洱"
+      },
+      "name": {
+        "en": "Ripe Cake — Selection XVIII",
+        "zh": "熟茶饼 · 精选十八号"
+      },
+      "shortDescription": {
+        "en": "Earthy, smooth, comforting brew.",
+        "zh": "木质与醇滑感并重。"
+      },
+      "description": {
+        "en": "Ripe pu'er from controlled fermentation. Add moisture and fermentation notes for B2C pages if needed.",
+        "zh": "可控发酵熟茶。如需可补充发酵与含水信息。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-154300.webp"
+    },
+    {
+      "id": "catalog-selection-020",
+      "sku": "WS-020",
+      "category": "sampler",
+      "categoryLabel": {
+        "en": "Sampler Set",
+        "zh": "入门组合"
+      },
+      "name": {
+        "en": "WASAI Selection — XX",
+        "zh": "佤赛精选 · 二十号"
+      },
+      "shortDescription": {
+        "en": "Featured item from the white-background catalog shoot.",
+        "zh": "白底图目录款之一。"
+      },
+      "description": {
+        "en": "Placeholder listing for the final image in the folder—rename and categorize to match your actual SKU.",
+        "zh": "文件夹内最后一张白底图。请按真实 SKU 调整品名与分类。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-154508.webp"
     }
   ]
 }

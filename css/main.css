@@ -123,20 +123,27 @@ p {
   z-index: 0;
 }
 
+.hero-video-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 .hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 2;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1.2s ease;
+  transition: opacity 0.55s ease;
+  z-index: 1;
 }
 
 .hero-video.is-playing {
   opacity: 1;
+  z-index: 2;
   pointer-events: auto;
 }
 
@@ -144,6 +151,16 @@ p {
   position: absolute;
   inset: 0;
   z-index: 1;
+}
+
+.hero-slideshow--fallback {
+  transition: opacity 0.65s ease;
+}
+
+/* Hide photo fallback whenever the video playlist is active (including between clip swaps). */
+.hero-media.hero-media--playlist-active .hero-slideshow--fallback {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero-slide {

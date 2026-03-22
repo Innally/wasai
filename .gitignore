@@ -1,4 +1,4 @@
-# Heavy original uploads (web-optimized copies are in assets/images/)
+# Full WebP libraries live here; only site-used subset is under assets/images/ (see npm run assets:used)
 /founder_pic/
 /Selected_procduct_pic_white_background/
 /Self_owned_factory/
