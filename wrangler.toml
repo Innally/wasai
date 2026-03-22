@@ -5,5 +5,10 @@ name = "wasai"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
+# Required by Cloudflare Pages so wrangler.toml is valid. This site serves static files
+# from the repo root (index.html, css/, js/, …). If you use a build step that outputs
+# to another folder (e.g. dist/), change this to match.
+pages_build_output_dir = "."
+
 # Must live at the same folder as package.json / functions/ (Pages "Root directory").
 # If the dashboard Root directory is a subfolder, copy this file there or set Root to "/".

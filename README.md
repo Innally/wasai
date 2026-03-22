@@ -36,6 +36,8 @@ Connect this folder or push the repo. Internal links use real files (`products.h
 
 If the build log says **`No Wrangler configuration file found`**, Cloudflare did not see `wrangler.toml` next to your build: **commit and push** `wrangler.toml`, set **Settings → Builds → Root directory** to **`/`** (repo root) unless your app lives in a subfolder, and redeploy after the file is on the branch.
 
+If you see **`Wrangler configuration file … does not appear to be valid`** / missing **`pages_build_output_dir`**, the repo `wrangler.toml` must include **`pages_build_output_dir`** (this project uses **`"."`** because static files live at the repo root). Align **Settings → Builds → Build output directory** with that, or change `pages_build_output_dir` if your build outputs to e.g. **`dist/`**.
+
 ### “Redirected you too many times” (ERR_TOO_MANY_REDIRECTS)
 
 That usually comes from **Cloudflare** (not from this repo’s HTML):
