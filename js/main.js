@@ -391,7 +391,11 @@ async function startCheckout(product) {
     });
     const body = await response.json().catch(() => ({}));
     if (!response.ok || !body.url) {
-      throw new Error(body.error || "Unable to start checkout.");
+      const msg = body.detail
+        ? `${body.error || "Checkout failed"} — ${body.detail}`
+        : body.error || "Unable to start checkout.";
+      console.error("checkout API", response.status, body);
+      throw new Error(msg);
     }
     window.location.href = body.url;
   } catch (error) {

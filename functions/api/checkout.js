@@ -18,7 +18,7 @@ function readQuantity(input) {
 async function getProductById(request, productId) {
   const url = new URL(request.url);
   const dataUrl = new URL("/data/products.json", `${url.origin}/`);
-  const response = await fetch(dataUrl.toString(), { cf: { cacheTtl: 60 } });
+  const response = await fetch(dataUrl.toString());
   if (!response.ok) {
     throw new Error(`Cannot load products.json: ${response.status}`);
   }
@@ -84,7 +84,8 @@ export async function onRequestPost(context) {
         productId: product.id,
         sku: product.sku || "",
       },
-      automatic_tax: { enabled: true },
+      // Must be false until Stripe Tax is configured in Dashboard (true causes session.create to fail).
+      automatic_tax: { enabled: false },
       billing_address_collection: "required",
       shipping_address_collection: {
         allowed_countries: ["US"],
@@ -96,6 +97,17 @@ export async function onRequestPost(context) {
     return json({ url: session.url });
   } catch (error) {
     console.error("checkout error", error);
-    return json({ error: "Unable to create checkout session." }, 500);
+    const detail =
+      error?.raw?.message ||
+      error?.message ||
+      (typeof error === "string" ? error : null) ||
+      "unknown error";
+    return json(
+      {
+        error: "Unable to create checkout session.",
+        detail,
+      },
+      500,
+    );
   }
 }
