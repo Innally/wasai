@@ -56,17 +56,17 @@ This project includes:
 - `functions/api/webhook.js` -> handles `checkout.session.completed`
 - `success.html` and `cancel.html` -> customer return pages
 
-Before enabling checkout, configure these Cloudflare Pages **environment variables**:
+Before enabling checkout, configure secrets and env:
 
-- `STRIPE_SECRET_KEY` (required) -> Stripe secret API key
-- `STRIPE_WEBHOOK_SECRET` (required) -> endpoint signing secret from Stripe webhook settings
-- `FORMSPREE_ENDPOINT` (optional) -> endpoint that receives order notification payloads
+- `STRIPE_SECRET_KEY` (required) -> Stripe secret API key (**Dashboard Secrets** or `wrangler secret put`)
+- `STRIPE_WEBHOOK_SECRET` (required) -> webhook signing secret (`whsec_...`)
+- `FORMSPREE_ENDPOINT` (optional) -> Formspree form URL for order emails from the webhook. This repo sets it in **`wrangler.toml`** under `[vars]`; change the URL there or override in the dashboard if your Pages project allows it.
 
-Cloudflare dashboard path:
+Cloudflare dashboard path (for Stripe secrets):
 
-1. **Workers & Pages** -> your project -> **Settings** -> **Environment variables**
-2. Add each key for both **Production** and **Preview** (recommended)
-3. Redeploy after saving variables
+1. **Workers & Pages** -> your project -> **Settings** -> **Variables and Secrets** (or **Environment variables**)
+2. Add **Secrets** for `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` for **Production** (and **Preview** if you test there)
+3. Redeploy after saving
 
 Then, in Stripe dashboard:
 

@@ -10,5 +10,9 @@ compatibility_flags = ["nodejs_compat"]
 # to another folder (e.g. dist/), change this to match.
 pages_build_output_dir = "."
 
+# Order notification URL for functions/api/webhook.js (optional; omit or override if needed).
+[vars]
+FORMSPREE_ENDPOINT = "https://formspree.io/f/xjgaqgvb"
+
 # Must live at the same folder as package.json / functions/ (Pages "Root directory").
 # If the dashboard Root directory is a subfolder, copy this file there or set Root to "/".
