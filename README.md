@@ -34,6 +34,8 @@ Connect this folder or push the repo. Internal links use real files (`products.h
 
 **Pages Functions + Stripe:** The repo includes `wrangler.toml` with **`nodejs_compat`** (required for the Stripe Node SDK). The **`stripe`** package is declared under **`functions/package.json`** and hoisted via npm **workspaces** so the deploy bundler can resolve it. Use a build step that installs dependencies, e.g. **Build command:** `npm ci` or `npm install` (and commit **`package-lock.json`**). If you still see “Could not resolve stripe”, confirm the install ran and that **Settings → Functions → Compatibility flags** includes **`nodejs_compat`** (should match `wrangler.toml`).
 
+If the build log says **`No Wrangler configuration file found`**, Cloudflare did not see `wrangler.toml` next to your build: **commit and push** `wrangler.toml`, set **Settings → Builds → Root directory** to **`/`** (repo root) unless your app lives in a subfolder, and redeploy after the file is on the branch.
+
 ### “Redirected you too many times” (ERR_TOO_MANY_REDIRECTS)
 
 That usually comes from **Cloudflare** (not from this repo’s HTML):

@@ -1,0 +1,7 @@
+{
+  "name": "wasai-pages-functions",
+  "private": true,
+  "dependencies": {
+    "stripe": "^20.4.1"
+  }
+}
