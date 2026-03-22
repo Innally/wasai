@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | Tea Collection</title>
+    <meta name="description" content="Browse WASAI tea collection including raw pu'er, ripe pu'er, ancient tree tea, white tea, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Tea</span>
+      </a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="index.html#story" data-en="Story" data-zh="品牌故事">Story</a>
+        <a href="index.html#mountains" data-en="Mountains" data-zh="茶山古树">Mountains</a>
+        <a href="index.html#tea-101" data-en="Tea 101" data-zh="普洱入门">Tea 101</a>
+        <a href="index.html#contact" data-en="Contact" data-zh="联系">Contact</a>
+        <a class="nav-pill" href="products.html" data-en="Shop All" data-zh="查看全部">Shop All</a>
+      </nav>
+      <button class="lang-toggle" type="button" aria-label="Switch language">中文</button>
+    </header>
+
+    <main class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-en="All Products" data-zh="全部茶品">All Products</p>
+        <h1 data-en="Tea collection curated for both first-time drinkers and collectors." data-zh="兼顾新手与收藏爱好者的茶品组合。">
+          Tea collection curated for both first-time drinkers and collectors.
+        </h1>
+      </div>
+
+      <div class="filter-row reveal" id="filterRow"></div>
+      <div class="product-grid" id="catalogGrid"></div>
+    </main>
+
+    <footer class="site-footer">
+      <p data-en="Questions? Visit our contact section on the homepage." data-zh="如需咨询，请前往首页联系板块。">
+        Questions? Visit our contact section on the homepage.
+      </p>
+    </footer>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

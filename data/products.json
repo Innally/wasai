@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "id": "raw-puer-ancient-tree-001",
+      "sku": "WS-SHENG-001",
+      "category": "raw_puer",
+      "categoryLabel": { "en": "Raw Pu'er", "zh": "生普洱" },
+      "name": { "en": "East Half Mountain Raw Cake", "zh": "东半山古树生茶饼" },
+      "shortDescription": {
+        "en": "Bright, floral, and layered with long aftertaste.",
+        "zh": "香气清扬，层次分明，回甘持久。"
+      },
+      "description": {
+        "en": "Classic raw pu'er cake made from East Half Mountain ancient-tree leaves. Suitable for both immediate drinking and long-term storage.",
+        "zh": "采用东半山古树鲜叶制作的经典生普茶饼，适合当下品饮，也具有长期陈化价值。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152521.webp"
+    },
+    {
+      "id": "ripe-puer-golden-002",
+      "sku": "WS-SHOU-002",
+      "category": "ripe_puer",
+      "categoryLabel": { "en": "Ripe Pu'er", "zh": "熟普洱" },
+      "name": { "en": "Small-Pile Fermented Ripe Cake", "zh": "小堆发酵熟茶饼" },
+      "shortDescription": {
+        "en": "Smooth, woody, and comforting from the first cup.",
+        "zh": "入口顺滑，木质香与甜润感明显。"
+      },
+      "description": {
+        "en": "Traditionally fermented with spring water in climate-controlled rooms, delivering a clean and mellow profile for everyday tea drinking.",
+        "zh": "在恒温发酵空间中以传统工艺与泉水发酵，口感干净醇和，适合日常饮用。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152537.webp"
+    },
+    {
+      "id": "loose-maocha-003",
+      "sku": "WS-MAOCHA-003",
+      "category": "loose_maocha",
+      "categoryLabel": { "en": "Loose Mao Cha", "zh": "晒青毛茶" },
+      "name": { "en": "Sun-Dried Loose Mao Cha", "zh": "高山晒青毛茶散茶" },
+      "shortDescription": {
+        "en": "Pure expression of mountain terroir in loose-leaf form.",
+        "zh": "以散茶形态呈现最直接的山场风味。"
+      },
+      "description": {
+        "en": "Processed without withering or yellowing, preserving the vibrant, living character of fresh Yunnan leaves.",
+        "zh": "遵循传统晒青工艺，不做萎凋与闷黄，最大程度保留鲜叶活性与山野气息。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152913.webp"
+    },
+    {
+      "id": "sampler-set-004",
+      "sku": "WS-SAMPLE-004",
+      "category": "sampler",
+      "categoryLabel": { "en": "Sampler Set", "zh": "入门组合" },
+      "name": { "en": "Beginner Discovery Set", "zh": "普洱入门体验套装" },
+      "shortDescription": {
+        "en": "Taste several tea styles before choosing your favorite.",
+        "zh": "一次体验多种风格，快速找到你的偏好。"
+      },
+      "description": {
+        "en": "Curated for first-time American drinkers, this set includes raw, ripe, and specialty teas with simple brewing guidance.",
+        "zh": "为海外新手茶友设计，包含生普、熟普与特色茶样，并附基础冲泡建议。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-152927.webp"
+    },
+    {
+      "id": "aged-collection-005",
+      "sku": "WS-AGED-005",
+      "category": "aged",
+      "categoryLabel": { "en": "Aged Collection", "zh": "陈年收藏" },
+      "name": { "en": "Aged Collector's Cake", "zh": "陈年收藏级茶饼" },
+      "shortDescription": {
+        "en": "Matured profile with depth for collectors.",
+        "zh": "陈化香韵明显，适合收藏与深度品鉴。"
+      },
+      "description": {
+        "en": "Selected batches stored under careful conditions to build complexity over time, suitable for advanced tea enthusiasts.",
+        "zh": "甄选批次在严格仓储条件下陈化，层次和厚度随年份提升，适合资深爱好者。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153111.webp"
+    },
+    {
+      "id": "white-tea-006",
+      "sku": "WS-WHITE-006",
+      "category": "white_tea",
+      "categoryLabel": { "en": "White Tea", "zh": "白茶" },
+      "name": { "en": "Yunnan White Tea Cake", "zh": "云南白茶饼" },
+      "shortDescription": {
+        "en": "Soft sweetness with elegant floral aroma.",
+        "zh": "甜润柔和，花香清雅。"
+      },
+      "description": {
+        "en": "Yunnan white tea crafted for gentle daily drinking while retaining enough structure for light aging.",
+        "zh": "云南白茶风格清柔，兼顾日常饮用与轻度陈化潜力。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153124.webp"
+    },
+    {
+      "id": "dianhong-007",
+      "sku": "WS-DIANHONG-007",
+      "category": "dianhong",
+      "categoryLabel": { "en": "Dianhong Black Tea", "zh": "滇红" },
+      "name": { "en": "Yunnan Dianhong", "zh": "云南古树滇红" },
+      "shortDescription": {
+        "en": "Honeyed sweetness and rich body.",
+        "zh": "蜜甜明显，茶汤饱满。"
+      },
+      "description": {
+        "en": "A warm and approachable black tea profile that introduces Yunnan's depth to non-pu'er drinkers.",
+        "zh": "温润易饮的红茶表达，让更多非普洱用户也能感受云南茶的厚度。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153153.webp"
+    },
+    {
+      "id": "flavored-tea-008",
+      "sku": "WS-FLAVOR-008",
+      "category": "flavored",
+      "categoryLabel": { "en": "Flavored Tea", "zh": "调味茶" },
+      "name": { "en": "Craft Flavored Tea Blend", "zh": "手作调味茶组合" },
+      "shortDescription": {
+        "en": "Friendly flavor gateway for younger tea drinkers.",
+        "zh": "适合年轻人群的风味入口。"
+      },
+      "description": {
+        "en": "Designed for broader lifestyle tea occasions while still keeping a clean tea core and premium leaves.",
+        "zh": "面向更广泛生活场景设计，兼顾风味表现与优质茶底。"
+      },
+      "priceUsd": null,
+      "image": "assets/images/Selected_procduct_pic_white_background/2026-02-03-153218.webp"
+    }
+  ]
+}

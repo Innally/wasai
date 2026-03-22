@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | Product Detail</title>
+    <meta name="description" content="Learn details of a WASAI tea product and submit an inquiry." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Tea</span>
+      </a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="products.html" data-en="Products" data-zh="产品">Products</a>
+        <a href="index.html#mountains" data-en="Mountains" data-zh="茶山古树">Mountains</a>
+        <a href="index.html#story" data-en="Story" data-zh="品牌故事">Story</a>
+        <a href="index.html#contact" data-en="Contact" data-zh="联系">Contact</a>
+      </nav>
+      <button class="lang-toggle" type="button" aria-label="Switch language">中文</button>
+    </header>
+
+    <main class="section product-detail-page">
+      <article class="detail-layout" id="detailLayout">
+        <p data-en="Loading product..." data-zh="正在加载产品信息...">Loading product...</p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p data-en="WASAI Tea · Crafted in East Half Mountain, Yunnan" data-zh="WASAI 茶业 · 东半山匠心制作">WASAI Tea · Crafted in East Half Mountain, Yunnan</p>
+    </footer>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

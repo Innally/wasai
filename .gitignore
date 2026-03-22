@@ -1,0 +1,16 @@
+# Heavy original uploads (web-optimized copies are in assets/images/)
+/founder_pic/
+/Selected_procduct_pic_white_background/
+/Self_owned_factory/
+/tea_mountain_and_trees/
+
+# Duplicate logo at repo root (site uses assets/logo.jpg)
+/logo.jpg
+
+# Dependencies
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

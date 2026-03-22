@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | One Mountain, One Cup of Purity</title>
+    <meta
+      name="description"
+      content="Discover Yunnan pu'er tea from East Half Mountain. Organic cultivation, traditional craft, and a community rooted in heritage."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Tea</span>
+      </a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="#story" data-en="Story" data-zh="品牌故事">Story</a>
+        <a href="#mountains" data-en="Mountains" data-zh="茶山古树">Mountains</a>
+        <a href="#tea-101" data-en="Tea 101" data-zh="普洱入门">Tea 101</a>
+        <a href="#products" data-en="Products" data-zh="产品">Products</a>
+        <a href="#process" data-en="Craft" data-zh="工艺">Craft</a>
+        <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+        <a class="nav-pill" href="products.html" data-en="Shop All" data-zh="查看全部">Shop All</a>
+      </nav>
+      <button class="lang-toggle" type="button" aria-label="Switch language">中文</button>
+    </header>
+
+    <main>
+      <section class="hero-cinematic section" id="hero">
+        <div class="hero-media" data-parallax>
+          <!-- Add MP4/WebM to assets/video/ and uncomment sources below for full video hero -->
+          <video
+            id="heroVideo"
+            class="hero-video"
+            poster="assets/images/tea_mountain_and_trees/2023-08-27-202334.webp"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <!--
+            <source src="assets/video/hero-tea-art.mp4" type="video/mp4" />
+            <source src="assets/video/hero-tea-art.webm" type="video/webm" />
+            -->
+          </video>
+          <div class="hero-slideshow" aria-hidden="true">
+            <div
+              class="hero-slide is-active"
+              style="background-image: url('assets/images/tea_mountain_and_trees/2023-08-27-202334.webp')"
+            ></div>
+            <div class="hero-slide" style="background-image: url('assets/images/tea_mountain_and_trees/2023-08-27-202324.webp')"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/tea_mountain_and_trees/2023-08-27-211035.webp')"></div>
+          </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow" data-en="From East Half Mountain, Yunnan" data-zh="来自云南勐库东半山">From East Half Mountain, Yunnan</p>
+          <h1 data-en="One Mountain's Inheritance, One Cup of Purity." data-zh="一山传承，一杯纯净。">
+            One Mountain's Inheritance, One Cup of Purity.
+          </h1>
+          <p
+            class="lead"
+            data-en="Ancient tea gardens, organic care, and living heritage—shared with first-time drinkers and lifelong collectors."
+            data-zh="古茶园、有机管护与活态传承——献给初次品茶的你，也献给资深藏家。"
+          >
+            Ancient tea gardens, organic care, and living heritage—shared with first-time drinkers and lifelong collectors.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#mountains" data-en="See the Mountains" data-zh="走进茶山">See the Mountains</a>
+            <a class="btn btn-outline" href="products.html" data-en="Explore Tea Collection" data-zh="探索茶品">Explore Tea Collection</a>
+          </div>
+        </div>
+        <p
+          class="hero-hint"
+          data-en="Tip: place a loop in assets/video/ and uncomment the video sources in index.html to enable a full video hero."
+          data-zh="提示：将循环视频放入 assets/video/，并在 index.html 中取消视频 source 注释即可启用全屏视频首屏。"
+        >
+          Tip: place a loop in assets/video/ and uncomment the video sources in index.html to enable a full video hero.
+        </p>
+      </section>
+
+      <div class="section-divider" role="presentation" aria-hidden="true">
+        <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="currentColor"
+            d="M0 24c200-18 400 18 600 0s400-18 600 0v24H0V24z"
+            opacity="0.35"
+          />
+          <path fill="currentColor" d="M0 32c200-12 400 12 600 0s400-12 600 0v16H0V32z" />
+        </svg>
+      </div>
+
+      <section class="section story" id="story">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Our Story" data-zh="我们的故事">Our Story</p>
+          <h2 data-en="Rooted in mountain communities, crafted by generations." data-zh="根植山地社区，代代传承工艺。">
+            Rooted in mountain communities, crafted by generations.
+          </h2>
+        </div>
+        <div class="split-grid">
+          <article class="card reveal">
+            <h3 data-en="A community-first tea origin" data-zh="以社区为核心的茶源地">A community-first tea origin</h3>
+            <p
+              data-en="WASAI works with 700+ farming households across East Half Mountain. Every harvest carries local indigenous knowledge shaped by slope, sun, wind, and soil."
+              data-zh="WASAI 与东半山 700 多户茶农合作。每一季茶叶都承载着依据坡向、日照、风向与土壤积累的本地经验。"
+            >
+              WASAI works with 700+ farming households across East Half Mountain. Every harvest carries local indigenous knowledge shaped by slope, sun, wind, and soil.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3 data-en="No pesticide, no chemical fertilizer" data-zh="禁用农药与化肥">No pesticide, no chemical fertilizer</h3>
+            <p
+              data-en="Tea garden management is done by hand, with strict team-level accountability. The goal is simple: genuinely clean leaves, batch after batch."
+              data-zh="茶园全程人工管理，并建立组长责任追溯机制。目标很明确：每一批都是真正干净的茶叶。"
+            >
+              Tea garden management is done by hand, with strict team-level accountability. The goal is simple: genuinely clean leaves, batch after batch.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div class="section-divider section-divider--flip" role="presentation" aria-hidden="true">
+        <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M0 16c200 12 400-12 600 0s400 12 600 0v32H0V16z" opacity="0.25" />
+        </svg>
+      </div>
+
+      <section class="section mountains" id="mountains">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Tea Mountains & Ancient Trees" data-zh="茶山与古树">Tea Mountains & Ancient Trees</p>
+          <h2 data-en="Organic gardens where time moves slowly." data-zh="有机茶园，时间在此放慢。">Organic gardens where time moves slowly.</h2>
+          <p
+            class="section-lead"
+            data-en="High-elevation plots, vine-trained large-leaf tea, and stewardship that honors both land and people—this is the root of every cup."
+            data-zh="高海拔地块、藤条大叶种，以及对土地与人的守护——这是每一杯茶的根。"
+          >
+            High-elevation plots, vine-trained large-leaf tea, and stewardship that honors both land and people—this is the root of every cup.
+          </p>
+        </div>
+        <div class="mountain-showcase">
+          <figure class="mountain-card reveal">
+            <img
+              src="assets/images/tea_mountain_and_trees/2023-08-27-202334.webp"
+              alt="Misty tea mountains and ancient groves"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption data-en="Mountain mist & layered ridges" data-zh="云雾茶山与层叠山脊">Mountain mist & layered ridges</figcaption>
+          </figure>
+          <figure class="mountain-card reveal">
+            <img
+              src="assets/images/tea_mountain_and_trees/2023-08-27-202324.webp"
+              alt="Tea trees in organic mountain garden"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption data-en="Ancient-tree character & deep roots" data-zh="古树气韵与深扎根系">Ancient-tree character & deep roots</figcaption>
+          </figure>
+          <figure class="mountain-card reveal">
+            <img
+              src="assets/images/tea_mountain_and_trees/2023-08-27-211035.webp"
+              alt="Sunlit tea mountain landscape"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption data-en="Sun, soil, and slow growth" data-zh="阳光、土壤与缓慢生长">Sun, soil, and slow growth</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section tea-101" id="tea-101">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Tea 101" data-zh="普洱入门">Tea 101</p>
+          <h2 data-en="New to pu'er? Start here." data-zh="第一次接触普洱？从这里开始。">New to pu'er? Start here.</h2>
+        </div>
+        <div class="accordion-group">
+          <details class="reveal" open>
+            <summary data-en="What is pu'er tea?" data-zh="什么是普洱茶？">What is pu'er tea?</summary>
+            <p
+              data-en="Pu'er is a Yunnan tea style known for depth, complexity, and aging potential. Like wine, terroir and craft shape each cup."
+              data-zh="普洱是云南特有茶类，以层次、厚度和陈化潜力著称。像葡萄酒一样，风土与工艺共同塑造每一杯。"
+            >
+              Pu'er is a Yunnan tea style known for depth, complexity, and aging potential. Like wine, terroir and craft shape each cup.
+            </p>
+          </details>
+          <details class="reveal">
+            <summary data-en="Raw vs. ripe pu'er" data-zh="生普与熟普的区别">Raw vs. ripe pu'er</summary>
+            <p
+              data-en="Raw (sheng) tea tastes bright and layered, evolving over years. Ripe (shou) tea is fermented and offers a smooth, earthy profile from day one."
+              data-zh="生普清新有层次，随着年份变化风味更丰富；熟普经发酵后口感更醇厚、柔和，适合即饮。"
+            >
+              Raw (sheng) tea tastes bright and layered, evolving over years. Ripe (shou) tea is fermented and offers a smooth, earthy profile from day one.
+            </p>
+          </details>
+          <details class="reveal">
+            <summary data-en="Why ancient-tree tea matters" data-zh="为什么古树茶重要">Why ancient-tree tea matters</summary>
+            <p
+              data-en="Ancient-tree leaves are naturally lower yield and more concentrated. You get stronger structure, longer finish, and better aging trajectory."
+              data-zh="古树茶产量较低但内质更集中，通常拥有更强的骨架感、更持久的回甘与更好的陈化潜力。"
+            >
+              Ancient-tree leaves are naturally lower yield and more concentrated. You get stronger structure, longer finish, and better aging trajectory.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section products" id="products">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Selected Collection" data-zh="精选茶品">Selected Collection</p>
+          <h2 data-en="From everyday warm cups to collector-grade cakes." data-zh="从日常温暖茶饮到收藏级茶饼。">
+            From everyday warm cups to collector-grade cakes.
+          </h2>
+        </div>
+        <div id="homeProductGrid" class="product-grid"></div>
+        <div class="section-cta reveal">
+          <a class="btn btn-gold" href="products.html" data-en="View Full Collection" data-zh="查看全部茶品">View Full Collection</a>
+        </div>
+      </section>
+
+      <section class="section process" id="process">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="The Tea Journey" data-zh="一片叶子的旅程">The Tea Journey</p>
+          <h2 data-en="Traditional craft, modern precision." data-zh="传统工艺，现代品控。">Traditional craft, modern precision.</h2>
+        </div>
+        <ol class="timeline">
+          <li class="reveal" data-en="1) Garden selection by generations of local knowledge." data-zh="1）以代际经验选择茶园地块。">
+            1) Garden selection by generations of local knowledge.
+          </li>
+          <li class="reveal" data-en="2) Hand-picked leaves from 1,300m-2,000m+ elevations." data-zh="2）海拔 1300m-2000m+ 手工采摘鲜叶。">
+            2) Hand-picked leaves from 1,300m-2,000m+ elevations.
+          </li>
+          <li class="reveal" data-en="3) Sun-dried mao cha process completed within 24 hours." data-zh="3）晒青毛茶工艺，24 小时内完成关键干燥周期。">
+            3) Sun-dried mao cha process completed within 24 hours.
+          </li>
+          <li class="reveal" data-en="4) Small-pile ripe fermentation with natural spring water." data-zh="4）地下泉水参与的小堆熟普发酵。">
+            4) Small-pile ripe fermentation with natural spring water.
+          </li>
+          <li class="reveal" data-en="5) Quality tests verify clean, safe, and consistent tea." data-zh="5）通过质量检测，确保洁净、安全与稳定。">
+            5) Quality tests verify clean, safe, and consistent tea.
+          </li>
+        </ol>
+      </section>
+
+      <section class="section quality" id="quality">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Quality & Trust" data-zh="质量与信任">Quality & Trust</p>
+          <h2 data-en="Verified standards behind every leaf." data-zh="每一片茶叶背后的可验证标准。">Verified standards behind every leaf.</h2>
+        </div>
+        <div class="stats-grid">
+          <article class="stat reveal"><strong>700+</strong><span data-en="Partner farming households" data-zh="合作茶农户数">Partner farming households</span></article>
+          <article class="stat reveal"><strong>13,000+</strong><span data-en="Acres of tea gardens" data-zh="茶园面积（亩）">Acres of tea gardens</span></article>
+          <article class="stat reveal"><strong>12,000m²</strong><span data-en="Factory size" data-zh="自有工厂面积">Factory size</span></article>
+          <article class="stat reveal"><strong>100+</strong><span data-en="Pesticide residues not detected" data-zh="农残未检出项数">Pesticide residues not detected</span></article>
+        </div>
+      </section>
+
+      <section class="section factory" id="factory">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Our Factory" data-zh="自有工厂">Our Factory</p>
+          <h2 data-en="Built for scale, grounded in tradition." data-zh="规模化能力，传统工艺底色。">Built for scale, grounded in tradition.</h2>
+        </div>
+        <div class="gallery-grid">
+          <img class="reveal" src="assets/images/Self_owned_factory/2023-08-19-115614.webp" alt="WASAI tea factory exterior" loading="lazy" />
+          <img class="reveal" src="assets/images/Self_owned_factory/2023-08-27-202721.webp" alt="WASAI tea processing facility" loading="lazy" />
+          <img class="reveal" src="assets/images/Self_owned_factory/2023-08-27-202819.webp" alt="WASAI tea workshop view" loading="lazy" />
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-en="Contact" data-zh="联系我们">Contact</p>
+          <h2 data-en="Tell us your tea preference. We will guide you." data-zh="告诉我们你的口味偏好，我们来为你推荐。">
+            Tell us your tea preference. We will guide you.
+          </h2>
+        </div>
+        <form class="contact-form reveal" action="https://formspree.io/f/your_form_id" method="POST">
+          <label>
+            <span data-en="Your Name" data-zh="姓名">Your Name</span>
+            <input name="name" type="text" required data-field />
+          </label>
+          <label>
+            <span data-en="Email" data-zh="邮箱">Email</span>
+            <input name="email" type="email" required data-field />
+          </label>
+          <label>
+            <span data-en="Message" data-zh="留言">Message</span>
+            <textarea
+              name="message"
+              rows="5"
+              data-field
+              data-en-placeholder="Tell us what tea style you enjoy, and we will recommend products."
+              data-zh-placeholder="欢迎告诉我们你的口味偏好，我们会为你推荐茶品。"
+              placeholder="Tell us what tea style you enjoy, and we will recommend products."
+            ></textarea>
+          </label>
+          <button type="submit" class="btn btn-gold" data-en="Send Inquiry" data-zh="发送咨询">Send Inquiry</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-en="WASAI Tea · East Half Mountain, Mengku, Yunnan" data-zh="WASAI 茶业 · 云南勐库东半山">WASAI Tea · East Half Mountain, Mengku, Yunnan</p>
+    </footer>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
