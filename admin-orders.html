@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | Admin Orders</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <style>
+      .admin-controls {
+        display: grid;
+        gap: 0.7rem;
+        max-width: 900px;
+        margin-bottom: 1rem;
+      }
+      .admin-controls input {
+        border: 1px solid var(--border);
+        border-radius: 0.65rem;
+        padding: 0.55rem 0.7rem;
+        font: inherit;
+      }
+      .admin-controls .row {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .admin-table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        border-radius: 0.8rem;
+        background: var(--surface);
+      }
+      .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      .admin-table th,
+      .admin-table td {
+        padding: 0.6rem 0.65rem;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+      }
+      .admin-table th {
+        font-weight: 700;
+        color: var(--deep-green);
+      }
+      .muted {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Tea Admin</span>
+      </a>
+      <nav class="site-nav" aria-label="Admin">
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Admin</p>
+        <h1>Order Log</h1>
+        <p class="muted">Uses D1 via <code>/api/admin/orders</code>. Keep this page private.</p>
+      </div>
+
+      <section class="admin-controls">
+        <label>
+          Admin API Token
+          <input id="tokenInput" type="password" autocomplete="off" placeholder="Paste ADMIN_API_TOKEN" />
+        </label>
+        <div class="row">
+          <input id="queryInput" type="text" placeholder="Search by email, name, SKU, product ID, session ID" />
+          <button id="loadBtn" class="btn btn-gold" type="button">Load Orders</button>
+        </div>
+        <p id="status" class="muted"></p>
+      </section>
+
+      <section class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Created</th>
+              <th>SKU</th>
+              <th>Product ID</th>
+              <th>Total</th>
+              <th>Customer</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Session</th>
+            </tr>
+          </thead>
+          <tbody id="ordersBody">
+            <tr>
+              <td colspan="8" class="muted">No data loaded yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script>
+      const tokenInput = document.getElementById("tokenInput");
+      const queryInput = document.getElementById("queryInput");
+      const loadBtn = document.getElementById("loadBtn");
+      const statusEl = document.getElementById("status");
+      const ordersBody = document.getElementById("ordersBody");
+      const STORAGE_KEY = "wasai-admin-token";
+
+      tokenInput.value = localStorage.getItem(STORAGE_KEY) || "";
+
+      function setStatus(text) {
+        statusEl.textContent = text;
+      }
+
+      function fmtAmount(cents, currency) {
+        const value = (Number(cents || 0) / 100).toFixed(2);
+        return `${(currency || "usd").toUpperCase()} ${value}`;
+      }
+
+      function renderRows(orders) {
+        if (!orders.length) {
+          ordersBody.innerHTML = '<tr><td colspan="8" class="muted">No orders found.</td></tr>';
+          return;
+        }
+
+        ordersBody.innerHTML = orders
+          .map((row) => {
+            const created = row.created_at || "";
+            return `
+              <tr>
+                <td>${created}</td>
+                <td>${row.sku || ""}</td>
+                <td>${row.product_id || ""}</td>
+                <td>${fmtAmount(row.amount_total_cents, row.currency)}</td>
+                <td>${row.customer_name || ""}</td>
+                <td>${row.customer_email || ""}</td>
+                <td>${row.payment_status || ""}</td>
+                <td>${row.stripe_session_id || ""}</td>
+              </tr>
+            `;
+          })
+          .join("");
+      }
+
+      async function loadOrders() {
+        const token = tokenInput.value.trim();
+        const q = queryInput.value.trim();
+        if (!token) {
+          setStatus("Please enter ADMIN_API_TOKEN.");
+          return;
+        }
+        localStorage.setItem(STORAGE_KEY, token);
+        setStatus("Loading...");
+        loadBtn.disabled = true;
+
+        try {
+          const url = new URL("/api/admin/orders", window.location.origin);
+          if (q) {
+            url.searchParams.set("q", q);
+          }
+          const response = await fetch(url.toString(), {
+            headers: { "x-admin-token": token },
+          });
+          const body = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(body.error || `Request failed (${response.status})`);
+          }
+          const orders = Array.isArray(body.orders) ? body.orders : [];
+          renderRows(orders);
+          setStatus(`Loaded ${orders.length} order(s).`);
+        } catch (error) {
+          setStatus(error.message || "Failed to load orders.");
+        } finally {
+          loadBtn.disabled = false;
+        }
+      }
+
+      loadBtn.addEventListener("click", loadOrders);
+      queryInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          loadOrders();
+        }
+      });
+    </script>
+  </body>
+</html>

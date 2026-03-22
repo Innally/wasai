@@ -12,6 +12,8 @@ npm run convert-images   # writes .webp into each category folder (skips existin
 npm run assets:used      # refreshes assets/images/ from the manifest in scripts/copy-used-assets.js + products.json
 ```
 
+**Hero tea-mountain slideshow:** the set is **only** whatever `*.webp` files you keep in **`assets/images/tea_mountain_and_trees/`** (not auto-filled from the root `tea_mountain_and_trees/` library). After you add or remove images there, run `npm run assets:used` to regenerate **`data/hero-mountain-slides.json`** from that folder. Deleting a file from `assets/images/tea_mountain_and_trees/` and re-running `assets:used` removes it from the hero (nothing restores it from root unless you copy it again yourself or add its path to `STATIC_USED` in `scripts/copy-used-assets.js`).
+
 To add a new product image: put a **WebP with an English-only filename** (ASCII, kebab-case, e.g. `raw-puer-xiaohusai-cake.webp`) in `Selected_procduct_pic_white_background/`, add the path under `image` in `data/products.json`, register the Chinese label in `data/product-image-map.json` if you need to keep the old naming for reference, add the path to `STATIC_USED` in `scripts/copy-used-assets.js` if it’s used on `index.html`, then run `npm run assets:used`.
 
 **Why English filenames:** URLs, some CDNs, and older tooling handle non-ASCII paths less predictably. Chinese product names stay in `products.json` and in `data/product-image-map.json` (`chineseFile` ↔ `englishFile` per SKU / `productId`).
@@ -39,3 +41,87 @@ That usually comes from **Cloudflare** (not from this repo’s HTML):
 3. This project **does not** ship an `_redirects` file anymore; pretty URLs like `/products` are not rewritten—use **`/products.html`** (as the links already do).
 
 If you later want `/products` without `.html`, add **one** redirect or rewrite in the Cloudflare dashboard and test in an incognito window.
+
+### Stripe checkout setup (Pages Functions)
+
+This project includes:
+
+- `functions/api/checkout.js` -> creates Stripe Checkout sessions
+- `functions/api/webhook.js` -> handles `checkout.session.completed`
+- `success.html` and `cancel.html` -> customer return pages
+
+Before enabling checkout, configure these Cloudflare Pages **environment variables**:
+
+- `STRIPE_SECRET_KEY` (required) -> Stripe secret API key
+- `STRIPE_WEBHOOK_SECRET` (required) -> endpoint signing secret from Stripe webhook settings
+- `FORMSPREE_ENDPOINT` (optional) -> endpoint that receives order notification payloads
+
+Cloudflare dashboard path:
+
+1. **Workers & Pages** -> your project -> **Settings** -> **Environment variables**
+2. Add each key for both **Production** and **Preview** (recommended)
+3. Redeploy after saving variables
+
+Then, in Stripe dashboard:
+
+1. Create a webhook endpoint at `https://<your-domain>/api/webhook`
+2. Select event `checkout.session.completed`
+3. Copy signing secret into `STRIPE_WEBHOOK_SECRET`
+
+For local development with Wrangler, mirror these vars in `.dev.vars` (do not commit secrets).
+
+### D1 order log (optional but recommended)
+
+This project can store paid orders in Cloudflare D1:
+
+- `db/schema.sql` -> table definition
+- `functions/api/webhook.js` -> writes completed checkout sessions into D1
+- `functions/api/admin/orders.js` -> protected read API
+- `admin-orders.html` -> lightweight admin viewer
+
+Cloudflare setup:
+
+1. Create a D1 database (example name: `wasai-order`).
+2. Apply schema:
+
+```bash
+# One-time: log in (opens browser)
+npx wrangler login
+
+# Apply schema to your *remote* D1 (replace DB name in package.json if not wasai-order)
+npm run d1:apply-schema
+```
+
+Or manually: `npx wrangler d1 execute <YOUR_DB_NAME> --remote --file db/schema.sql`
+
+3. In Pages project settings, add a **D1 binding**:
+   - Binding name: `DB`
+   - Database: your `wasai-order` DB
+4. Add an admin token env var:
+   - `ADMIN_API_TOKEN` (required to call `/api/admin/orders`)
+
+Admin usage:
+
+- Open `admin-orders.html`
+- Paste `ADMIN_API_TOKEN`
+- Load / search orders
+
+Security notes:
+
+- Keep `admin-orders.html` private (not linked in public nav).
+- Rotate `ADMIN_API_TOKEN` if shared.
+- Never commit secrets to git.
+
+## US compliance checklist (tea sales)
+
+Payment setup is only part of launch readiness. For selling tea in the US, track this checklist:
+
+- Confirm each product is classified and labeled as a **food** product (or appropriate category).
+- Keep ingredient and allergen statements accurate and consistent with packaging.
+- Ensure net quantity declarations and business identity are present on labels.
+- Document supplier COAs / safety records (e.g., pesticide and contaminant checks).
+- Determine whether your business qualifies for small-business nutrition-label exemptions.
+- If making health-related claims, verify they are compliant and substantiated.
+- Confirm facility registration / local permits as required for your supply chain.
+
+Regulatory requirements can change by state and product type. Validate final labels and claims with qualified compliance counsel before large-scale launch.

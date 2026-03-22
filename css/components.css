@@ -249,6 +249,25 @@ summary {
   padding: 1rem;
 }
 
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.btn-outline-dark {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--deep-green);
+}
+
+.detail-actions .btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 @media (max-width: 860px) {
   .nav-toggle {
     display: inline-flex;

@@ -104,11 +104,37 @@ function initMobileNav() {
   });
 }
 
-function initHeroMedia() {
+async function initHeroMedia() {
   const media = document.querySelector(".hero-media");
   const a = document.getElementById("heroVideoA");
   const b = document.getElementById("heroVideoB");
-  const slides = document.querySelectorAll(".hero-slide");
+  const slideHost = document.getElementById("heroMountainSlideshow");
+
+  if (slideHost) {
+    try {
+      const response = await fetch("./data/hero-mountain-slides.json", { cache: "no-store" });
+      if (response.ok) {
+        const payload = await response.json();
+        const urls = Array.isArray(payload.slides) ? payload.slides : [];
+        if (urls.length) {
+          slideHost.innerHTML = urls
+            .map(
+              (src, index) =>
+                `<div class="hero-slide${index === 0 ? " is-active" : ""}" style="background-image:url('${src}')"></div>`,
+            )
+            .join("");
+        }
+      }
+    } catch (error) {
+      console.warn("Hero slides manifest not loaded:", error);
+    }
+    if (!slideHost.querySelector(".hero-slide")) {
+      slideHost.innerHTML =
+        `<div class="hero-slide is-active" style="background-image:url('assets/images/tea_mountain_and_trees/2023-08-27-202334.webp')"></div>`;
+    }
+  }
+
+  const slides = document.querySelectorAll("#heroMountainSlideshow .hero-slide");
   if (!slides.length) {
     return;
   }
@@ -117,12 +143,13 @@ function initHeroMedia() {
   let slideTimer;
 
   const nextSlide = () => {
-    const active = document.querySelector(".hero-slide.is-active");
-    if (!active) {
+    const all = document.querySelectorAll("#heroMountainSlideshow .hero-slide");
+    const active = document.querySelector("#heroMountainSlideshow .hero-slide.is-active");
+    if (!active || !all.length) {
       return;
     }
     active.classList.remove("is-active");
-    const next = active.nextElementSibling || slides[0];
+    const next = active.nextElementSibling || all[0];
     next.classList.add("is-active");
   };
 
@@ -431,7 +458,7 @@ async function init() {
   initParallax();
   initHeaderScroll();
   initMobileNav();
-  initHeroMedia();
+  await initHeroMedia();
   attachLanguageRerender();
   await Promise.all([renderHomeProducts(), renderCatalog(), renderProductDetail()]);
 }

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | Payment Cancelled</title>
+    <meta name="description" content="Your WASAI Tea payment was cancelled." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Tea</span>
+      </a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+        <a href="products.html" data-en="Products" data-zh="产品">Products</a>
+      </nav>
+      <button class="lang-toggle" type="button" aria-label="Switch language">中文</button>
+    </header>
+
+    <main class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-en="Payment Not Completed" data-zh="支付未完成">Payment Not Completed</p>
+        <h1 data-en="No worries - your order was not charged." data-zh="不用担心，你的订单尚未扣款。">
+          No worries - your order was not charged.
+        </h1>
+        <p data-en="You can return to the product page and try checkout again anytime." data-zh="你可以返回产品页，随时重新发起支付。">
+          You can return to the product page and try checkout again anytime.
+        </p>
+      </div>
+      <p>
+        <a class="btn btn-gold" href="products.html" data-en="Back to Products" data-zh="返回产品列表">Back to Products</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p data-en="WASAI Tea · Crafted in East Half Mountain, Yunnan" data-zh="WASAI 茶业 · 东半山匠心制作">WASAI Tea · Crafted in East Half Mountain, Yunnan</p>
+    </footer>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

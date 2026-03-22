@@ -7,14 +7,19 @@
     "convert-images": "node scripts/convert-images.js",
     "assets:used": "node scripts/copy-used-assets.js",
     "validate:products": "node scripts/validate-products.js",
-    "test": "echo \"No automated tests configured\""
+    "test": "echo \"No automated tests configured\"",
+    "d1:apply-schema": "wrangler d1 execute wasai-order --remote --file db/schema.sql"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "devDependencies": {
+    "wrangler": "^4.76.0"
+  },
   "dependencies": {
     "heic-convert": "^2.1.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "stripe": "^20.4.1"
   }
 }
