@@ -10,7 +10,7 @@ const SOURCE_DIRS = [
   "Self_owned_factory",
   "tea_mountain_and_trees",
 ];
-const OUTPUT_ROOT = path.join(ROOT, "assets", "images");
+/** WebP output goes next to sources in each category folder (not under assets/). */
 const VALID_EXTENSIONS = new Set([".heic", ".jpg", ".jpeg", ".png", ".webp"]);
 
 async function ensureDir(dirPath) {
@@ -46,10 +46,13 @@ async function convertFile(filePath, sourceDirName) {
   if (!VALID_EXTENSIONS.has(ext)) {
     return { status: "skipped", reason: "unsupported extension" };
   }
+  if (ext === ".webp") {
+    return { status: "skipped", reason: "already webp" };
+  }
 
   const fileName = path.parse(filePath).name;
   const safeName = fileName.replace(/[^\w\-]+/g, "-").toLowerCase();
-  const outputDir = path.join(OUTPUT_ROOT, sourceDirName);
+  const outputDir = path.join(ROOT, sourceDirName);
   const outputFile = path.join(outputDir, `${safeName}.webp`);
 
   await ensureDir(outputDir);
@@ -104,6 +107,7 @@ async function run() {
   console.log(`Converted: ${converted}`);
   console.log(`Skipped: ${skipped}`);
   console.log(`Failed: ${failed}`);
+  console.log("\nNext: npm run assets:used  — copy only site-used images into assets/images/");
 }
 
 run().catch((error) => {
