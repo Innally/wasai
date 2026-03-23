@@ -100,9 +100,13 @@ npm run d1:apply-schema
 
 Or manually: `npx wrangler d1 execute <YOUR_DB_NAME> --remote --file db/schema.sql`
 
-3. In Pages project settings, add a **D1 binding**:
-   - Binding name: `DB`
-   - Database: your `wasai-order` DB
+3. **Bind D1 to Pages** (pick one):
+
+   - **Via `wrangler.toml` (recommended if the dashboard says bindings are managed in Wrangler):**  
+     Fill in **`database_id`** in **`[[d1_databases]]`** (UUID from **D1 → your database → Database ID**). Keep **`binding = "DB"`** and **`database_name`** matching the name you created (e.g. `wasai-order`). Commit and redeploy.
+
+   - **Via Dashboard:** **Settings → Bindings → D1** → variable name **`DB`** → select your database.
+
 4. Add an admin token env var:
    - `ADMIN_API_TOKEN` (required to call `/api/admin/orders`)
 
