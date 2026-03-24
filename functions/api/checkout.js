@@ -27,25 +27,6 @@ async function getProductById(request, productId) {
   return products.find((item) => item.id === productId) || null;
 }
 
-async function getPriceOverride(env, productId) {
-  if (!env.DB) {
-    return null;
-  }
-  try {
-    const result = await env.DB.prepare(
-      "SELECT price_usd FROM product_prices WHERE product_id = ? AND is_active = 1 LIMIT 1",
-    )
-      .bind(productId)
-      .first();
-    if (result && typeof result.price_usd === "number" && result.price_usd > 0) {
-      return Number(result.price_usd.toFixed(2));
-    }
-  } catch (error) {
-    console.warn("price override lookup failed; using static price", error);
-  }
-  return null;
-}
-
 export async function onRequestPost(context) {
   try {
     const { request, env } = context;
@@ -68,9 +49,7 @@ export async function onRequestPost(context) {
     if (!product) {
       return json({ error: "Product not found." }, 404);
     }
-    const overridePrice = await getPriceOverride(env, product.id);
-    const finalPrice = typeof overridePrice === "number" ? overridePrice : product.priceUsd;
-    if (typeof finalPrice !== "number" || finalPrice <= 0) {
+    if (typeof product.priceUsd !== "number" || product.priceUsd <= 0) {
       return json({ error: "Product is not purchasable yet." }, 400);
     }
 
@@ -88,7 +67,7 @@ export async function onRequestPost(context) {
           quantity,
           price_data: {
             currency: "usd",
-            unit_amount: Math.round(finalPrice * 100),
+            unit_amount: Math.round(product.priceUsd * 100),
             product_data: {
               name: product?.name?.en || product.id,
               description: product?.shortDescription?.en || "",

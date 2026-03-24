@@ -1,5 +1,4 @@
-const API_DATA_URL = "./api/products";
-const STATIC_DATA_URL = "./data/products.json";
+const DATA_URL = "./data/products.json";
 let productsDataPromise = null;
 let productsDataCache = null;
 
@@ -11,17 +10,12 @@ async function readJson({ forceRefresh = false } = {}) {
     return productsDataPromise;
   }
 
-  productsDataPromise = fetch(API_DATA_URL, { cache: "no-store" })
+  productsDataPromise = fetch(DATA_URL, { cache: "no-store" })
     .then((response) => {
-      if (response.ok) {
-        return response.json();
+      if (!response.ok) {
+        throw new Error(`Failed to load product data: ${response.status}`);
       }
-      return fetch(STATIC_DATA_URL, { cache: "no-store" }).then((fallback) => {
-        if (!fallback.ok) {
-          throw new Error(`Failed to load product data: ${fallback.status}`);
-        }
-        return fallback.json();
-      });
+      return response.json();
     })
     .then((data) => {
       productsDataCache = data;

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | Admin Access</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <style>
+      .admin-gate {
+        max-width: 720px;
+        margin: 1.2rem auto;
+        display: grid;
+        gap: 1rem;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 0.8rem;
+        padding: 1rem;
+        background: var(--surface);
+      }
+      .card input {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 0.65rem;
+        padding: 0.55rem 0.7rem;
+        font: inherit;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 0.7rem;
+      }
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.7rem;
+      }
+      .links a {
+        display: block;
+        text-decoration: none;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .ok {
+        color: var(--deep-green);
+      }
+      .warn {
+        color: #9a4d00;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Admin Access</span>
+      </a>
+      <nav class="site-nav" aria-label="Admin">
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main class="section admin-gate">
+      <section class="card">
+        <h1>Admin Token Check</h1>
+        <label for="tokenInput" class="muted">Admin API Token</label>
+        <input id="tokenInput" type="password" autocomplete="off" placeholder="Paste ADMIN_API_TOKEN" />
+        <div class="actions">
+          <button id="verifyBtn" class="btn btn-gold" type="button">Verify Token</button>
+          <button id="clearBtn" class="btn btn-outline-dark" type="button">Clear Saved Token</button>
+        </div>
+        <p id="status" class="muted"></p>
+      </section>
+
+      <section id="linksCard" class="card" hidden>
+        <h2>Admin Tools</h2>
+        <div class="links">
+          <a class="btn btn-outline-dark" href="admin-orders.html">Open Orders Admin</a>
+          <a class="btn btn-outline-dark" href="admin-pricing.html">Open Pricing Admin</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const STORAGE_KEY = "wasai-admin-token";
+      const tokenInput = document.getElementById("tokenInput");
+      const verifyBtn = document.getElementById("verifyBtn");
+      const clearBtn = document.getElementById("clearBtn");
+      const statusEl = document.getElementById("status");
+      const linksCard = document.getElementById("linksCard");
+
+      tokenInput.value = localStorage.getItem(STORAGE_KEY) || "";
+
+      function setStatus(text, level = "muted") {
+        statusEl.textContent = text;
+        statusEl.className = level;
+      }
+
+      async function verifyToken() {
+        const token = tokenInput.value.trim();
+        if (!token) {
+          setStatus("Please enter ADMIN_API_TOKEN.", "warn");
+          linksCard.hidden = true;
+          return;
+        }
+
+        setStatus("Verifying...", "muted");
+        verifyBtn.disabled = true;
+        try {
+          const url = new URL("/api/admin/orders?limit=1", window.location.origin);
+          const response = await fetch(url.toString(), {
+            headers: { "x-admin-token": token },
+          });
+          const body = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(body.error || `Verification failed (${response.status})`);
+          }
+
+          localStorage.setItem(STORAGE_KEY, token);
+          setStatus("Token verified. Admin tools unlocked.", "ok");
+          linksCard.hidden = false;
+        } catch (error) {
+          setStatus(error.message || "Token verification failed.", "warn");
+          linksCard.hidden = true;
+        } finally {
+          verifyBtn.disabled = false;
+        }
+      }
+
+      verifyBtn.addEventListener("click", verifyToken);
+      tokenInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          verifyToken();
+        }
+      });
+      clearBtn.addEventListener("click", () => {
+        localStorage.removeItem(STORAGE_KEY);
+        tokenInput.value = "";
+        linksCard.hidden = true;
+        setStatus("Saved token cleared.", "muted");
+      });
+
+      if (tokenInput.value.trim()) {
+        verifyToken();
+      }
+    </script>
+  </body>
+</html>

@@ -23,13 +23,3 @@ CREATE TABLE IF NOT EXISTS orders (
 CREATE INDEX IF NOT EXISTS idx_orders_created_at ON orders(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_orders_customer_email ON orders(customer_email);
 CREATE INDEX IF NOT EXISTS idx_orders_product_id ON orders(product_id);
-
-CREATE TABLE IF NOT EXISTS product_prices (
-  product_id TEXT PRIMARY KEY,
-  price_usd REAL NOT NULL,
-  is_active INTEGER NOT NULL DEFAULT 1,
-  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_by TEXT
-);
-
-CREATE INDEX IF NOT EXISTS idx_product_prices_active ON product_prices(is_active);
