@@ -266,6 +266,7 @@ function resolveText(obj, lang) {
 }
 
 function productCardTemplate(product, lang) {
+  const price = product.priceUsd ? `$${product.priceUsd}` : lang === "zh" ? "价格咨询" : "Contact for Price";
   return `
     <article class="product-card reveal">
       <img src="${product.image}" alt="${resolveText(product.name, lang)}" loading="lazy" />
@@ -273,6 +274,7 @@ function productCardTemplate(product, lang) {
         <span class="product-chip">${resolveText(product.categoryLabel, lang)}</span>
         <h3>${resolveText(product.name, lang)}</h3>
         <p>${resolveText(product.shortDescription, lang)}</p>
+        <p><strong>${lang === "zh" ? "价格：" : "Price:"}</strong> ${price}</p>
         <a class="btn btn-gold" href="product-detail.html?id=${encodeURIComponent(product.id)}">${
           lang === "zh" ? "查看详情" : "View Details"
         }</a>
