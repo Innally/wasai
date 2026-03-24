@@ -1,20 +1,40 @@
 const DATA_URL = "./data/products.json";
+let productsDataPromise = null;
+let productsDataCache = null;
 
-async function readJson() {
-  const response = await fetch(DATA_URL, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`Failed to load product data: ${response.status}`);
+async function readJson({ forceRefresh = false } = {}) {
+  if (!forceRefresh && productsDataCache) {
+    return productsDataCache;
   }
-  return response.json();
+  if (!forceRefresh && productsDataPromise) {
+    return productsDataPromise;
+  }
+
+  productsDataPromise = fetch(DATA_URL, { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load product data: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      productsDataCache = data;
+      return data;
+    })
+    .finally(() => {
+      productsDataPromise = null;
+    });
+
+  return productsDataPromise;
 }
 
-export async function getProducts() {
-  const data = await readJson();
+export async function getProducts(options) {
+  const data = await readJson(options);
   return data.products ?? [];
 }
 
-export async function getProduct(id) {
-  const products = await getProducts();
+export async function getProduct(id, options) {
+  const products = await getProducts(options);
   return products.find((item) => item.id === id) ?? null;
 }
 

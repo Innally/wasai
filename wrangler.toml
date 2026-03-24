@@ -14,10 +14,10 @@ pages_build_output_dir = "."
 [vars]
 FORMSPREE_ENDPOINT = "https://formspree.io/f/xjgaqgvb"
 
-# D1 — must match env.DB in functions/api/webhook.js and functions/api/admin/orders.js
-# Get database_id: Cloudflare Dashboard → Storage → D1 → your DB → copy "Database ID" (UUID),
-# or run: npx wrangler d1 list
-# Replace REPLACE_WITH_YOUR_D1_DATABASE_ID below, then commit and redeploy.
+# D1 — must match env.DB in functions/api/webhook.js and functions/api/admin/orders.js.
+# Update database_name/database_id if you switch to a different Cloudflare D1 database.
+# You can find database_id in Cloudflare Dashboard -> Storage -> D1 -> your DB
+# or with: npx wrangler d1 list
 [[d1_databases]]
 binding = "DB"
 database_name = "wasai-order"

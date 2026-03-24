@@ -15,23 +15,32 @@ const HERO_VIDEO_PLAYLIST = HERO_VIDEO_ENABLED
     ].map((path) => encodeURI(path))
   : [];
 
-function initRevealAnimations() {
-  const targets = document.querySelectorAll(".reveal");
+let revealObserver;
+
+function initRevealAnimations(root = document) {
+  const targets = root.querySelectorAll(".reveal:not([data-reveal-observed='1'])");
   if (!targets.length) {
     return;
   }
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 },
-  );
-  targets.forEach((el) => observer.observe(el));
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+  }
+
+  targets.forEach((el) => {
+    el.dataset.revealObserved = "1";
+    revealObserver.observe(el);
+  });
 }
 
 function initParallax() {
@@ -282,7 +291,7 @@ async function renderHomeProducts() {
   const products = await getProducts();
   const featured = products.slice(0, 6);
   grid.innerHTML = featured.map((item) => productCardTemplate(item, lang)).join("");
-  initRevealAnimations();
+  initRevealAnimations(grid);
 }
 
 function uniqueCategories(products) {
@@ -312,7 +321,7 @@ function renderCatalogGrid() {
       ? catalogState.products
       : catalogState.products.filter((item) => item.category === catalogState.active);
   grid.innerHTML = filtered.map((item) => productCardTemplate(item, lang)).join("");
-  initRevealAnimations();
+  initRevealAnimations(grid);
 }
 
 async function renderCatalog() {

@@ -17,3 +17,7 @@ Thumbs.db
 
 # vscode
 .vscode/
+
+# Local secrets for Stripe/Wrangler
+.dev.vars
+stripe_key.env

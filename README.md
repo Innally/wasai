@@ -103,7 +103,7 @@ Or manually: `npx wrangler d1 execute <YOUR_DB_NAME> --remote --file db/schema.s
 3. **Bind D1 to Pages** (pick one):
 
    - **Via `wrangler.toml` (recommended if the dashboard says bindings are managed in Wrangler):**  
-     Fill in **`database_id`** in **`[[d1_databases]]`** (UUID from **D1 → your database → Database ID**). Keep **`binding = "DB"`** and **`database_name`** matching the name you created (e.g. `wasai-order`). Commit and redeploy.
+     Ensure **`[[d1_databases]]`** has the correct **`database_id`** (UUID from **D1 -> your database -> Database ID**), with **`binding = "DB"`** and **`database_name`** matching your DB name (e.g. `wasai-order`). Commit and redeploy.
 
    - **Via Dashboard:** **Settings → Bindings → D1** → variable name **`DB`** → select your database.
 
