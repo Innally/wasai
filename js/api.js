@@ -1,6 +1,18 @@
-const DATA_URL = "./data/products.json";
+const API_DATA_URL = "./api/products";
+const STATIC_DATA_URL = "./data/products.json";
 let productsDataPromise = null;
 let productsDataCache = null;
+
+function markContactForPrice(data) {
+  const products = Array.isArray(data?.products) ? data.products : [];
+  return {
+    ...data,
+    products: products.map((item) => ({
+      ...item,
+      priceUsd: null,
+    })),
+  };
+}
 
 async function readJson({ forceRefresh = false } = {}) {
   if (!forceRefresh && productsDataCache) {
@@ -10,12 +22,17 @@ async function readJson({ forceRefresh = false } = {}) {
     return productsDataPromise;
   }
 
-  productsDataPromise = fetch(DATA_URL, { cache: "no-store" })
+  productsDataPromise = fetch(API_DATA_URL, { cache: "no-store" })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Failed to load product data: ${response.status}`);
+      if (response.ok) {
+        return response.json();
       }
-      return response.json();
+      return fetch(STATIC_DATA_URL, { cache: "no-store" }).then((fallback) => {
+        if (!fallback.ok) {
+          throw new Error(`Failed to load product data: ${fallback.status}`);
+        }
+        return fallback.json().then((data) => markContactForPrice(data));
+      });
     })
     .then((data) => {
       productsDataCache = data;
