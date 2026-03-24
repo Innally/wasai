@@ -83,7 +83,10 @@ This project can store paid orders in Cloudflare D1:
 - `db/schema.sql` -> table definition
 - `functions/api/webhook.js` -> writes completed checkout sessions into D1
 - `functions/api/admin/orders.js` -> protected read API
+- `functions/api/admin/prices.js` -> protected write/read API for live product prices
+- `functions/api/products.js` -> public product feed that merges D1 price overrides
 - `admin-orders.html` -> lightweight admin viewer
+- `admin-pricing.html` -> calculator + live D1 price publisher
 
 Cloudflare setup:
 
@@ -100,6 +103,8 @@ npm run d1:apply-schema
 
 Or manually: `npx wrangler d1 execute <YOUR_DB_NAME> --remote --file db/schema.sql`
 
+If you already applied an older schema before live pricing was added, run the schema command again to create `product_prices`.
+
 3. **Bind D1 to Pages** (pick one):
 
    - **Via `wrangler.toml` (recommended if the dashboard says bindings are managed in Wrangler):**  
@@ -115,6 +120,34 @@ Admin usage:
 - Open `admin-orders.html`
 - Paste `ADMIN_API_TOKEN`
 - Load / search orders
+
+### Admin pricing tool (RMB -> USD)
+
+Use `admin-pricing.html` to calculate suggested `priceUsd` values from RMB costs and publish them live to D1.
+
+Model:
+
+- Effective RMB/USD rate = `fxRate*(1-pppWeight) + pppRate*pppWeight`
+- `factoryUsd = rmbCost / effectiveRate`
+- `landed = (factoryUsd + shipping + handling) * (1 + dutyPct + tariffPct)`
+- `targetPreFee = landed / (1 - targetMarginPct)`
+- `suggestedUsd` adds Stripe fee and rounds to a `.99` style retail number
+
+Live update flow:
+
+1. Open `admin-pricing.html`
+2. Paste `ADMIN_API_TOKEN`
+3. Enter RMB/weight inputs and recalculate
+4. Click **Save Suggested Prices to DB**
+5. Storefront (`/api/products`) and checkout (`/api/checkout`) immediately use D1 overrides
+
+Starting assumptions in the tool (editable):
+
+- Buying-power reference starts around `4.5 RMB/USD` (PPP-style approximation, not accounting FX)
+- Parcel shipping starts at `10 USD/kg`
+- Duty starts at `4%`, tariff starts at `0%` by default
+
+These are planning defaults only. Confirm HS classification, duty, tariff, brokerage, and freight with your customs broker / forwarder for final pricing.
 
 Security notes:
 
