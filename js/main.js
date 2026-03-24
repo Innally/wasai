@@ -386,7 +386,7 @@ async function startCheckout(product) {
   const button = document.querySelector("[data-checkout-btn]");
   const original = button?.textContent || label;
   if (button) {
-    button.textContent = lang === "zh" ? "跳转支付中..." : "Redirecting...";
+    button.textContent = lang === "zh" ? "跳转支付中..." : "Opening checkout...";
     button.setAttribute("disabled", "true");
     button.setAttribute("aria-busy", "true");
   }
@@ -411,7 +411,7 @@ async function startCheckout(product) {
     window.location.href = body.url;
   } catch (error) {
     console.error(error);
-    window.alert(lang === "zh" ? "暂时无法发起支付，请稍后重试。" : "Unable to start checkout right now. Please try again.");
+    window.alert(lang === "zh" ? "暂时无法发起支付，请稍后重试。" : "We couldn't start checkout right now. Please try again.");
     if (button) {
       button.textContent = original;
       button.removeAttribute("disabled");
@@ -430,7 +430,7 @@ async function renderProductDetail() {
   const product = await getProduct(productId);
   const lang = getActiveLanguage();
   if (!product) {
-    host.innerHTML = `<p>${lang === "zh" ? "未找到该产品。" : "Product not found."}</p>`;
+    host.innerHTML = `<p>${lang === "zh" ? "未找到该产品。" : "We couldn't find that product."}</p>`;
     return;
   }
 
@@ -447,7 +447,7 @@ async function renderProductDetail() {
         <button type="button" class="btn btn-gold" data-checkout-btn ${product.priceUsd ? "" : "disabled"}>
           ${lang === "zh" ? "立即购买" : "Buy Now"}
         </button>
-        <a class="btn btn-outline-dark" href="index.html#contact">${lang === "zh" ? "咨询此产品" : "Inquire About This Tea"}</a>
+        <a class="btn btn-outline-dark" href="index.html#contact">${lang === "zh" ? "咨询此产品" : "Ask About This Tea"}</a>
       </div>
     </div>
   `;
