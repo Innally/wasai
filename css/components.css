@@ -115,6 +115,15 @@
   font-weight: 600;
 }
 
+.soft-opening-banner {
+  margin: 0;
+  padding: 0.55rem min(4vw, 2.2rem);
+  background: #fff6df;
+  color: var(--deep-green);
+  border-bottom: 1px solid rgba(42, 61, 42, 0.16);
+  font-size: 0.92rem;
+}
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);

@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASAI Tea | Admin Pricing</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <style>
+      .admin-grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 0.8rem;
+        padding: 0.9rem;
+        background: var(--surface);
+      }
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.7rem;
+      }
+      .formula-grid label {
+        display: grid;
+        gap: 0.3rem;
+        font-size: 0.93rem;
+      }
+      .formula-grid input {
+        border: 1px solid var(--border);
+        border-radius: 0.6rem;
+        padding: 0.5rem 0.65rem;
+        font: inherit;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .ok {
+        color: var(--deep-green);
+      }
+      .warn {
+        color: #9a4d00;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        border-radius: 0.8rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 980px;
+      }
+      th,
+      td {
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 0.6rem;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 0.9rem;
+      }
+      th {
+        color: var(--deep-green);
+      }
+      td input {
+        width: 100px;
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        padding: 0.35rem 0.45rem;
+        font: inherit;
+      }
+      .small {
+        font-size: 0.84rem;
+      }
+      textarea {
+        width: 100%;
+        min-height: 180px;
+        border: 1px solid var(--border);
+        border-radius: 0.7rem;
+        padding: 0.6rem 0.7rem;
+        font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="WASAI Tea logo" />
+        <span>WASAI Admin Pricing</span>
+      </a>
+      <nav class="site-nav" aria-label="Admin">
+        <a href="admin-orders.html">Orders</a>
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main class="section admin-grid">
+      <div class="section-heading">
+        <p class="eyebrow">Admin</p>
+        <h1>Pricing Calculator (RMB -> USD)</h1>
+        <p class="muted">
+          Uses purchasing-power adjustment, landed costs, Stripe fee, and target margin. Review with your customs broker
+          before using in production.
+        </p>
+      </div>
+
+      <section class="card">
+        <h2>Live DB Controls</h2>
+        <div class="actions">
+          <label class="small">
+            Admin API Token
+            <input id="tokenInput" type="password" autocomplete="off" placeholder="Paste ADMIN_API_TOKEN" />
+          </label>
+          <button id="loadDbBtn" class="btn btn-outline-dark" type="button">Load DB Prices</button>
+          <button id="saveDbBtn" class="btn btn-gold" type="button">Save Suggested Prices to DB</button>
+        </div>
+        <p class="small muted">
+          Saves to <code>product_prices</code> in D1 via <code>/api/admin/prices</code>. Storefront and checkout will use
+          DB price overrides live.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Model Inputs</h2>
+        <div class="formula-grid">
+          <label>FX rate (RMB per USD)
+            <input id="fxRate" type="number" step="0.01" />
+          </label>
+          <label>Buying-power rate (RMB per USD)
+            <input id="pppRate" type="number" step="0.01" />
+          </label>
+          <label>PPP weight (0-1)
+            <input id="pppWeight" type="number" step="0.01" min="0" max="1" />
+          </label>
+          <label>Shipping USD per kg
+            <input id="shipPerKgUsd" type="number" step="0.01" />
+          </label>
+          <label>Handling USD per order
+            <input id="handlingUsd" type="number" step="0.01" />
+          </label>
+          <label>Customs duty %
+            <input id="dutyPct" type="number" step="0.1" />
+          </label>
+          <label>Additional tariff %
+            <input id="tariffPct" type="number" step="0.1" />
+          </label>
+          <label>Stripe fee %
+            <input id="stripePct" type="number" step="0.1" />
+          </label>
+          <label>Stripe fixed fee (USD)
+            <input id="stripeFixedUsd" type="number" step="0.01" />
+          </label>
+          <label>Target gross margin %
+            <input id="targetMarginPct" type="number" step="0.1" />
+          </label>
+        </div>
+        <p class="small muted">
+          Effective RMB->USD rate = FX*(1-PPP weight) + BuyingPower*PPP weight. Example: FX 7.2, buying-power 4.5, weight
+          0.5 gives effective rate 5.85.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Per-product Inputs and Suggested Price</h2>
+        <div class="actions">
+          <button id="recalcBtn" class="btn btn-gold" type="button">Recalculate</button>
+          <button id="exportBtn" class="btn btn-outline-dark" type="button">Generate JSON Patch</button>
+          <span id="status" class="muted"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>SKU</th>
+                <th>Product</th>
+                <th>Current USD</th>
+                <th>Factory Cost (RMB)</th>
+                <th>Ship Weight (g)</th>
+                <th>Landed USD</th>
+                <th>Suggested USD</th>
+              </tr>
+            </thead>
+            <tbody id="priceBody">
+              <tr><td colspan="7" class="muted">Loading products...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Export</h2>
+        <p class="small muted">
+          Copy this object and use it to update each product's <code>priceUsd</code> in <code>data/products.json</code>.
+        </p>
+        <textarea id="output" readonly></textarea>
+      </section>
+
+      <section class="card">
+        <h2>Research Notes (starting defaults)</h2>
+        <ul class="small muted">
+          <li>Buying-power rate starts at 4.5 RMB/USD (close to Big-Mac implied PPP range, not legal/accounting FX).</li>
+          <li>Shipping default starts at 10 USD/kg (mid-point for small China->US parcel estimates; verify your channel).</li>
+          <li>Tea duty can be 0%-6.4% by HS subtype; additional tariff can apply by policy and HTS chapter 99 updates.</li>
+          <li>Use duty/tariff as configurable fields here and confirm final landed cost with broker/freight forwarder.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      const STORAGE_KEY = "wasai-pricing-inputs-v1";
+      const TOKEN_STORAGE_KEY = "wasai-admin-token";
+      const DEFAULTS = {
+        fxRate: 7.2,
+        pppRate: 4.5,
+        pppWeight: 0.5,
+        shipPerKgUsd: 10,
+        handlingUsd: 1.2,
+        dutyPct: 4.0,
+        tariffPct: 0,
+        stripePct: 2.9,
+        stripeFixedUsd: 0.3,
+        targetMarginPct: 55,
+      };
+
+      const ui = {
+        priceBody: document.getElementById("priceBody"),
+        status: document.getElementById("status"),
+        output: document.getElementById("output"),
+        tokenInput: document.getElementById("tokenInput"),
+      };
+
+      const state = {
+        products: [],
+      };
+
+      function loadSettings() {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+        const settings = { ...DEFAULTS, ...saved };
+        Object.keys(DEFAULTS).forEach((key) => {
+          const el = document.getElementById(key);
+          if (el) {
+            el.value = settings[key];
+          }
+        });
+      }
+
+      function readSettings() {
+        const settings = {};
+        Object.keys(DEFAULTS).forEach((key) => {
+          const el = document.getElementById(key);
+          settings[key] = Number(el?.value || DEFAULTS[key]);
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+        return settings;
+      }
+
+      function suggestPrice(layers) {
+        const withFee = (layers.preFee + layers.stripeFixed) / (1 - layers.stripePct / 100);
+        const rounded = Math.max(1, Math.ceil(withFee) - 0.01);
+        return Number(rounded.toFixed(2));
+      }
+
+      function renderRows() {
+        if (!state.products.length) {
+          ui.priceBody.innerHTML = '<tr><td colspan="7" class="muted">No products found.</td></tr>';
+          return;
+        }
+
+        ui.priceBody.innerHTML = state.products
+          .map(
+            (p) => `
+          <tr data-id="${p.id}">
+            <td>${p.sku || ""}</td>
+            <td>${p.name?.en || p.id}</td>
+            <td data-current>$${Number(p.priceUsd || 0).toFixed(2)}</td>
+            <td><input data-rmb value="0" type="number" step="0.1" min="0" /></td>
+            <td><input data-grams value="300" type="number" step="1" min="1" /></td>
+            <td data-landed>-</td>
+            <td data-suggested>-</td>
+          </tr>
+        `,
+          )
+          .join("");
+      }
+
+      function recalc() {
+        const s = readSettings();
+        const effectiveRate = s.fxRate * (1 - s.pppWeight) + s.pppRate * s.pppWeight;
+        const output = {};
+        let rowsDone = 0;
+
+        ui.priceBody.querySelectorAll("tr[data-id]").forEach((row) => {
+          const id = row.dataset.id;
+          const rmb = Number(row.querySelector("[data-rmb]")?.value || 0);
+          const grams = Number(row.querySelector("[data-grams]")?.value || 0);
+          if (!id || rmb <= 0 || grams <= 0) {
+            row.querySelector("[data-landed]").textContent = "-";
+            row.querySelector("[data-suggested]").textContent = "-";
+            return;
+          }
+
+          const factoryUsd = rmb / effectiveRate;
+          const shippingUsd = (grams / 1000) * s.shipPerKgUsd;
+          const preDuty = factoryUsd + shippingUsd + s.handlingUsd;
+          const landed = preDuty * (1 + (s.dutyPct + s.tariffPct) / 100);
+          const preFee = landed / (1 - s.targetMarginPct / 100);
+          const suggested = suggestPrice({
+            preFee,
+            stripePct: s.stripePct,
+            stripeFixed: s.stripeFixedUsd,
+          });
+
+          row.querySelector("[data-landed]").textContent = `$${landed.toFixed(2)}`;
+          row.querySelector("[data-suggested]").textContent = `$${suggested.toFixed(2)}`;
+          output[id] = suggested;
+          rowsDone += 1;
+        });
+
+        ui.output.value = JSON.stringify(output, null, 2);
+        ui.status.textContent = rowsDone
+          ? `Calculated ${rowsDone} product(s). Effective rate: ${effectiveRate.toFixed(2)} RMB/USD`
+          : "Enter RMB cost and weight for each product to calculate.";
+        ui.status.className = rowsDone ? "ok" : "warn";
+      }
+
+      function readPricePatchFromOutput() {
+        try {
+          const parsed = JSON.parse(ui.output.value || "{}");
+          return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+        } catch {
+          return {};
+        }
+      }
+
+      async function loadDbPrices() {
+        const token = ui.tokenInput.value.trim();
+        if (!token) {
+          ui.status.textContent = "Please enter ADMIN_API_TOKEN.";
+          ui.status.className = "warn";
+          return;
+        }
+
+        localStorage.setItem(TOKEN_STORAGE_KEY, token);
+        ui.status.textContent = "Loading DB prices...";
+        ui.status.className = "muted";
+
+        const response = await fetch("/api/admin/prices", {
+          headers: { "x-admin-token": token },
+        });
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(body.error || `Failed to load DB prices (${response.status}).`);
+        }
+
+        const map = new Map();
+        const rows = Array.isArray(body.prices) ? body.prices : [];
+        rows.forEach((row) => {
+          if (row?.product_id && typeof row.price_usd === "number") {
+            map.set(row.product_id, Number(row.price_usd.toFixed(2)));
+          }
+        });
+
+        ui.priceBody.querySelectorAll("tr[data-id]").forEach((row) => {
+          const id = row.dataset.id;
+          if (!id || !map.has(id)) {
+            return;
+          }
+          const current = map.get(id);
+          const currentCell = row.querySelector("[data-current]");
+          if (currentCell) {
+            currentCell.textContent = `$${current.toFixed(2)}`;
+          }
+        });
+
+        ui.status.textContent = `Loaded ${rows.length} DB price override(s).`;
+        ui.status.className = "ok";
+      }
+
+      async function saveDbPrices() {
+        const token = ui.tokenInput.value.trim();
+        if (!token) {
+          ui.status.textContent = "Please enter ADMIN_API_TOKEN.";
+          ui.status.className = "warn";
+          return;
+        }
+
+        const prices = readPricePatchFromOutput();
+        const count = Object.keys(prices).length;
+        if (!count) {
+          ui.status.textContent = "No calculated prices to save. Recalculate first.";
+          ui.status.className = "warn";
+          return;
+        }
+
+        localStorage.setItem(TOKEN_STORAGE_KEY, token);
+        ui.status.textContent = "Saving prices to DB...";
+        ui.status.className = "muted";
+
+        const response = await fetch("/api/admin/prices", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "x-admin-token": token,
+          },
+          body: JSON.stringify({ prices }),
+        });
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(body.error || `Failed to save DB prices (${response.status}).`);
+        }
+
+        ui.priceBody.querySelectorAll("tr[data-id]").forEach((row) => {
+          const id = row.dataset.id;
+          if (!id || typeof prices[id] !== "number") {
+            return;
+          }
+          const currentCell = row.querySelector("[data-current]");
+          if (currentCell) {
+            currentCell.textContent = `$${Number(prices[id]).toFixed(2)}`;
+          }
+        });
+
+        ui.status.textContent = `Saved ${body.updated || count} price(s) to D1.`;
+        ui.status.className = "ok";
+      }
+
+      async function init() {
+        loadSettings();
+        ui.tokenInput.value = localStorage.getItem(TOKEN_STORAGE_KEY) || "";
+        const res = await fetch("./api/products", { cache: "no-store" });
+        if (!res.ok) {
+          throw new Error(`Failed to load products API: ${res.status}`);
+        }
+        const data = await res.json();
+        state.products = Array.isArray(data.products) ? data.products : [];
+        renderRows();
+        recalc();
+      }
+
+      document.getElementById("recalcBtn").addEventListener("click", recalc);
+      document.getElementById("exportBtn").addEventListener("click", async () => {
+        ui.output.select();
+        try {
+          await navigator.clipboard.writeText(ui.output.value);
+          ui.status.textContent = "JSON patch copied to clipboard.";
+          ui.status.className = "ok";
+        } catch {
+          ui.status.textContent = "Copied text not available; use Ctrl+C in the export box.";
+          ui.status.className = "warn";
+        }
+      });
+
+      document.querySelectorAll(".formula-grid input").forEach((el) => {
+        el.addEventListener("change", recalc);
+      });
+
+      document.getElementById("loadDbBtn").addEventListener("click", async () => {
+        try {
+          await loadDbPrices();
+        } catch (error) {
+          ui.status.textContent = error.message || "Failed to load DB prices.";
+          ui.status.className = "warn";
+        }
+      });
+
+      document.getElementById("saveDbBtn").addEventListener("click", async () => {
+        try {
+          await saveDbPrices();
+        } catch (error) {
+          ui.status.textContent = error.message || "Failed to save DB prices.";
+          ui.status.className = "warn";
+        }
+      });
+
+      document.getElementById("priceBody").addEventListener("input", (event) => {
+        if (event.target instanceof HTMLInputElement) {
+          recalc();
+        }
+      });
+
+      init().catch((error) => {
+        console.error(error);
+        ui.priceBody.innerHTML = `<tr><td colspan="7" class="warn">${error.message}</td></tr>`;
+        ui.status.textContent = "Failed to initialize pricing tool.";
+        ui.status.className = "warn";
+      });
+    </script>
+  </body>
+</html>
